@@ -1,20 +1,36 @@
-import React,{Component} from 'react'
+import React, {Component} from 'react'
+import { getGoodsDetail } from "./model";
+import styles from './index.module.scss'
 
-class gDetail extends Component{
-	constructor(props) {
-	  super(props);
+class gDetail extends Component {
+		constructor(props) {
+				super(props);
+				this.state = {
+						goodsDetailData: null
+				};
+		}
 
-	  this.state = {};
-	}
+		render() {
+				return (
+						<div id={styles.gDetail}>
+								<main className={styles.layer}>
+										<div className={styles.breadNav}>
 
-
-	render(){
-		return (
-						<div>
-								Gdetail
+										</div>
+								</main>
 						</div>
 				)
-	}
+		}
+
+		componentDidMount() {
+				getGoodsDetail(1465568).then(res => {
+						console.log(res);
+						this.setState({
+								goodsDetailData: res
+						})
+				})
+		}
+
 }
 
 export default gDetail
