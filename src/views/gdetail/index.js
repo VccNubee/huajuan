@@ -37,22 +37,31 @@ class gDetail extends Component {
 
 														<div className={styles.goods}>
 																{/*左侧商品*/}
-																<div className={styles.lf}>
-																		<div className={styles.mediaWrap}>
-																				<video controls src={this.state.goodsDetail.videos[this.state.currentVideo].video_url} poster={this.state.goodsDetail.videos[this.state.currentVideo].image_url} />
-																		</div>
-																		<div className={styles.videoList}>
-																				{
-																						this.state.goodsDetail.videos.map((item,index) =>
-																								<div className={this.state.currentVideo === index?`${styles.videoItem} ${styles.videoItemActive}` :styles.videoItem} key={item.video_id}>
-																										<div className={styles.videoItemImage} style={{backgroundImage:`url(${item.image_url})`}} onClick={this.changeVideo.bind(this,index)}/>
-																										<h3>{item.video_type_cn}视频</h3>
-																								</div>
-																						)
-																				}
-																		</div>
-
-																</div>
+																{/*视频商品*/}
+																{
+																		this.state.goodsDetail.videos.length !== 0?
+																				<div className={styles.lf}>
+																						<div className={styles.mediaWrap}>
+																								<video controls src={this.state.goodsDetail.videos[this.state.currentVideo].video_url} poster={this.state.goodsDetail.videos[this.state.currentVideo].image_url} />
+																						</div>
+																						<div className={styles.videoList}>
+																								{
+																										this.state.goodsDetail.videos.map((item,index) =>
+																												<div className={this.state.currentVideo === index?`${styles.videoItem} ${styles.videoItemActive}` :styles.videoItem} key={item.video_id}>
+																														<div className={styles.videoItemImage} style={{backgroundImage:`url(${item.image_url})`}} onClick={this.changeVideo.bind(this,index)}/>
+																														<h3>{item.video_type_cn}视频</h3>
+																												</div>
+																										)
+																								}
+																						</div>
+																				</div>
+																				:
+																				//图片商品
+																				<div className={styles.lf}>
+																						<div className={styles.mediaWrap} style={{backgroundImage:`url(${this.state.goodsDetail.goodsInfo.goods_image})`}}>
+																						</div>
+																				</div>
+																}
 																{/*商品详情*/}
 																<div className={styles.md}>
 																			<div className={styles.goodsDetail}>
