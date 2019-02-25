@@ -54,7 +54,7 @@ class List extends Component{
 				{
 					this.state.pList.map(
 						(item)=><li key={item.goods_id}>
-							<Link to={`/detail/${item.goods_id}`}>
+							<Link to={`/gdetail/${item.goods_id}`}>
 								<div>
 									<img src={item.goods_image} alt=""/>
 								</div>
