@@ -1,0 +1,52 @@
+.dataList{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    li{
+        margin-top: 20px;
+        width: 225px;
+        box-sizing: border-box;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        float: left;
+        a{
+            padding: 10px;
+            display: block;
+            div{
+                overflow: hidden;
+                width: 100%;
+                img{
+                    width: 100%;
+                }
+            }
+            p{
+                height: 30px;
+                margin: 0;
+                line-height: 30px;
+                font-size: 14px;
+                color: #000;
+                white-space : nowrap;
+                text-overflow:ellipsis; 
+                overflow:hidden;
+            }
+            .p1{
+                font-weight: 600;
+            }
+            .p3{
+                margin-top: 10px;
+                .s1{
+                    font-size: 24px;
+                    font-weight: 600;
+                    color: #ff527d;
+                }
+                .s2{
+                    color: #ccc;
+                    text-decoration: line-through;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}

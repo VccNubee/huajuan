@@ -15,7 +15,7 @@
             transition: color .5s;
         }
         .a1:hover{
-            color: #f6c;
+            color: #ff527d;
         }
         ul{
             float: right;
@@ -32,7 +32,7 @@
                 }
             }
             .l1{
-                color: #f6c;
+                color: #ff527d;
             }
             .l2{
                 a{
@@ -41,7 +41,7 @@
                     transition: color .5s;
                 }
                 a:hover{
-                    color:#f6c;
+                    color:#ff527d;
                 }
             }
             .l3{
@@ -51,7 +51,7 @@
                     transition: color .5s;
                 }
                 a:hover{
-                    color:#f6c;
+                    color:#ff527d;
                 }
             }
             .l4{
@@ -64,7 +64,7 @@
                     transition: color .5s;
                 }
                 a:hover{
-                    color:#f6c;
+                    color:#ff527d;
                 }
             }
         }
@@ -90,14 +90,14 @@
         line-height: 38px;
         transition: all .5s;
         span{
-            color: #f6c;
+            color: #ff527d;
             margin-right: 10px;
         }
         cursor: pointer;
     }
     .cart:hover{
-        border-color: #f6c;
-        color:#f6c;
+        border-color: #ff527d;
+        color:#ff527d;
     }
     .search{
         float: right;
@@ -123,12 +123,12 @@
             transition: all .5s;
         }
         button:hover{
-            color:#f6c;
+            color:#ff527d;
         }
     }
 }
 #Header{
     height: 152px;
     width:100%;
-    border-bottom: 2px solid #f6c;
+    border-bottom: 2px solid #ff527d;
 }
