@@ -13,14 +13,14 @@ var router = (
     <Router>
         <App>
             <Switch>
-                <Route path='/home/:id' component={Home}></Route>
-                {/*<Route path='/list/:id' component={List}></Route>*/}
-                {/*<Route path='/gdetail/:id' component={Gdetail}></Route>*/}
-                {/*<Route path='/vdetail/:id' component={Vdetail}></Route>*/}
-                {/*<Route path='/hongren/:id' component={Hot}></Route>*/}
-                {/*<Route path='/search' component={Search}></Route>*/}
-                {/*<Route path='/chargeTutoria' component={ChargeTutoria}></Route>*/}
-                {/*<Redirect from='/' to='/home'></Redirect>*/}
+                <Route path='/home' component={Home}></Route>
+                <Route path='/list/:id' component={List}></Route>
+                <Route path='/gdetail/:id' component={Gdetail}></Route>
+                <Route path='/vdetail/:id' component={Vdetail}></Route>
+                <Route path='/hongren/:id' component={Hot}></Route>
+                <Route path='/search' component={Search}></Route>
+                <Route path='/chargeTutoria' component={ChargeTutoria}></Route>
+                <Redirect from='/' to='/home'></Redirect>
             </Switch>
         </App>
     </Router>

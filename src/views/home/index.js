@@ -1,20 +1,21 @@
-import React, { Component } from 'react'
+import React,{Component} from 'react'
 
 class Home extends Component{
-		constructor(props) {
-				super(props);
-				this.state = {
+	constructor(props) {
+	  super(props);
+	
+	  this.state = {};
+	}
 
-				}
-		}
+	componentDidMount(){
+		// console.log(this.props.location.state.myid)
+	}
 
-		render() {
-				return (
-						<div id="home">
-
-						</div>
-				)
-		}
+	render(){
+		return <div>
+			Home
+		</div>
+	}
 
 }
 

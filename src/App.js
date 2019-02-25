@@ -5,8 +5,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/*<Header></Header>*/}
-        {/*<Nav></Nav>*/}
+        <Header></Header>
+        <Nav></Nav>
         {
           this.props.children
         }
