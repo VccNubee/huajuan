@@ -7,8 +7,7 @@ class List extends Component{
 	  super(props);
 	
 	  this.state = {
-		  pList:[],
-		  aList:[]
+		  pList:[]
 	  };
 	}
 	componentDidMount(){
@@ -41,15 +40,6 @@ class List extends Component{
 
 	render(){
 		return <div id={ccc.List}>
-			<ul>
-				<li>品类</li>
-				{
-					this.state.aList.map(
-						(item)=>
-						<li key={item.gc_id}><NavLink activeClassName={ccc.active} to={`/list/${item.gc_id}`}>{item.gc_name}</NavLink></li>
-					)
-				}
-			</ul>
 			<ul className={ccc.dataList}>
 				{
 					this.state.pList.map(
