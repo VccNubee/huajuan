@@ -4,8 +4,8 @@ import React,{Component} from 'react'
 
 class Nav extends Component{
     render() {
-     return <div>
-        Nav
+     return <div id='nav'>
+     nav
      </div>
     }
 }
