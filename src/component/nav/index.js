@@ -46,6 +46,16 @@ class Nav extends Component{
             <li><NavLink to='/chargeTutoria' activeClassName={ccc.active}><i></i>化妆教学</NavLink></li>
             
         </ul>
+        <ul>
+        <li>品类</li>
+        {
+            this.state.aList.map(
+                (item)=>
+                <li key={item.gc_id}><NavLink activeClassName={ccc.active} to={`/list/${item.gc_id}`}>{item.gc_name}</NavLink></li>
+            )
+        }
+        </ul>
+
      </div>
     }
 }
