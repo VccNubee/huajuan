@@ -63,7 +63,8 @@ class gDetail extends Component {
 																				</div>
 																}
 																{/*商品详情*/}
-																<div className={styles.md}>
+
+																<div className={styles.md} style={Object.keys(this.state.goodsDetail.hongren).length===0?{marginLeft:"160px"}:{marginLeft:"30px"}}>
 																			<div className={styles.goodsDetail}>
 																					<h2>{this.state.goodsDetail.goodsInfo.goods_desc}</h2>
 																					<h3>{this.state.goodsDetail.goodsInfo.goods_name}</h3>
@@ -87,10 +88,49 @@ class gDetail extends Component {
 																			</div>
 																</div>
 																{/*右侧红人信息*/}
-																<div className={styles.rt}>
-
+																<div>
+																		{
+																				Object.keys(this.state.goodsDetail.hongren).length===0?
+																						null
+																						:
+																						<div className={styles.rt}>
+																								<div className={styles.baseInfo}>
+																										<img src={this.state.goodsDetail.hongren.user_avatar} alt=""/>
+																										<p>{this.state.goodsDetail.hongren.user_name}</p>
+																								</div>
+																								<div className={styles.dInfo}>
+																										<div className={styles.item}>
+																												<span className={styles.title}>小铺号</span>
+																												<span className={styles.num}>{this.state.goodsDetail.hongren.hongren_number}</span>
+																										</div>
+																										<div className={styles.item}>
+																												<span className={styles.title}>宝贝</span>
+																												<span className={styles.num}>{this.state.goodsDetail.hongren.goods_num}</span>
+																										</div>
+																										<div className={styles.item}>
+																												<span className={styles.title}>粉丝</span>
+																												<span className={styles.num}>{this.state.goodsDetail.hongren.fcount}</span>
+																										</div>
+																								</div>
+																								<div className={styles.other}>
+																										<div>+关注</div>
+																										<a href={`/hongren/${this.state.goodsDetail.hongren.uid}`}>进店逛逛</a>
+																								</div>
+																						</div>
+																		}
 																</div>
 														</div>
+														<div>
+																{
+																		Object.keys(this.state.goodsDetail.goodsInfo.goods_other_detail).length !==0?
+																				<div className={styles.products}>
+																						<h3>{this.state.goodsDetail.goodsInfo.goods_other_detail.other_title}</h3>
+																						<div dangerouslySetInnerHTML={{__html:this.state.goodsDetail.goodsInfo.goods_other_detail.other_content }}/>
+																				</div>
+																		:null
+																}
+														</div>
+
 												</main>
 										:null
 								}
