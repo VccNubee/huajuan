@@ -132,7 +132,6 @@
 
 .mainBody .allGoods .filterList .filterListone .classFilterList {
   width: 100%;
-  border-bottom: 1px solid #eee;
 }
 
 .mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo {
@@ -158,12 +157,101 @@
   float: left;
 }
 
+.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName span:hover {
+  color: #ff527d;
+}
+
+.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName span:visited {
+  color: #ff527d;
+}
+
+.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName span:focus {
+  color: #ff527d;
+}
+
 .mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName .spanone {
+  outline: none;
   cursor: pointer;
   padding: 0 17px;
   border-right: 1px solid #eee;
 }
 
-.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName .spanone span:hover {
+.mainBody .allGoods .filterList .filterListone .brandFilterListo {
+  width: 100%;
+}
+
+.mainBody .allGoods .filterList .filterListone .brandFilterListo .brandFilterList {
+  width: 100%;
+  line-height: 50px;
+  font-size: 12px;
+  position: relative;
+  display: flex;
+  border-top: 1px solid #eee;
+  overflow: hidden;
+}
+
+.mainBody .allGoods .filterList .filterListone .brandFilterListo .brandFilterList .extendAll {
   color: #ff527d;
+  position: absolute;
+  top: 25px;
+  right: 0;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.mainBody .allGoods .filterList .filterListone .brandFilterListo .brandFilterList .brandTitle {
+  float: left;
+  color: #333;
+  font-weight: 600;
+  margin-right: 20px;
+}
+
+.mainBody .allGoods .filterList .filterListone .brandFilterListo .brandFilterList .brandTypeList {
+  float: left;
+  width: 1040px;
+  height: 50px;
+}
+
+.mainBody .allGoods .filterList .filterListone .brandFilterListo .brandFilterList .brandTypeList .brandTypeUl {
+  width: 1040px;
+  float: left;
+  position: relative;
+}
+
+.mainBody .allGoods .filterList .filterListone .brandFilterListo .brandFilterList .brandTypeList .brandTypeUl .brandTypeName {
+  float: left;
+  line-height: 50px;
+  outline: none;
+}
+
+.mainBody .allGoods .filterList .filterListone .brandFilterListo .brandFilterList .brandTypeList .brandTypeUl .brandTypeName span:hover {
+  color: #ff527d;
+}
+
+.mainBody .allGoods .filterList .filterListone .brandFilterListo .brandFilterList .brandTypeList .brandTypeUl .brandTypeName span:visited {
+  color: #ff527d;
+  border: 1px solid #ff527d;
+}
+
+.mainBody .allGoods .filterList .filterListone .brandFilterListo .brandFilterList .brandTypeList .brandTypeUl .brandTypeName span:active {
+  border: 1px solid #ff527d;
+}
+
+.mainBody .allGoods .filterList .filterListone .brandFilterListo .brandFilterList .brandTypeList .brandTypeUl .brandTypeName span:focus {
+  color: #ff527d;
+  border: 1px solid #ff527d;
+}
+
+.mainBody .allGoods .filterList .filterListone .brandFilterListo .brandFilterList .brandTypeList .brandTypeUl .brandTypeName .spanttt {
+  outline: none;
+  display: inline-block;
+  cursor: pointer;
+  padding: 0 15px;
+  min-width: 50px;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 20px;
+  transition: color .3s,border-color .3s;
+  margin: 0 5px;
 }

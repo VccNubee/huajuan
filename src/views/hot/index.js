@@ -32,7 +32,7 @@ class Hot extends Component{
 				this.state.looplist?
 				<div className={ch.hongrenHeadBackground}>
 					<div className={ch.hongrenAvatar}>
-						<img className={ch.userimg} src={this.state.looplist.user_avatar}/>
+						<img alt="" className={ch.userimg} src={this.state.looplist.user_avatar}/>
 					</div>
 						<div className={ch.hongrenInfo}>
 							<div className={ch.hongrenItem}>

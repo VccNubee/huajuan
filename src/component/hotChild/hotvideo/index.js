@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import axios from 'axios'
 import ch from './index.module.scss'
-import swiper from 'swiper'
+
 class Hotvideo extends Component{
 	constructor(props) {
 	  super(props);
@@ -9,7 +9,9 @@ class Hotvideo extends Component{
 	  this.state = {
           datalist:[],
           loplist:[],
-          daylist:[]
+          daylist:[],
+          brandlist:[],
+          isShow:true
       };
 	}
 
@@ -21,7 +23,8 @@ class Hotvideo extends Component{
             this.setState({
                 datalist:res.data.data.hot_video,
                 loplist:res.data.data,
-                daylist:res.data.data.class_info
+                daylist:res.data.data.class_info,
+                brandlist:res.data.data.brand_info
 			})
         })
 	}
@@ -35,9 +38,9 @@ class Hotvideo extends Component{
                 <div className={ch.hotVideoList}>
                     {
                         this.state.datalist.map(item=>
-                            <div className={ch.hotVideoItem} key={item.brand_id}>
+                            <div className={ch.hotVideoItem} key={item.video_id}>
                                 <div className={ch.hotVideoItemOne}>
-                                <a className={ch.hotVideoCover} href="#"><img src={item.image_url} className={ch.imgclass}/></a>
+                                <a className={ch.hotVideoCover} href={`/vdetail/${item.video_id}`}><img alt="" src={item.image_url} className={ch.imgclass}/></a>
                                 <div className={ch.hotVideoName}>{item.video_title}</div>
                                 <div>相关商品：{item.video_goods_num}</div>
                                 </div>
@@ -65,12 +68,12 @@ class Hotvideo extends Component{
                             <div className={ch.classfilterListtwo}>
                             <span className={ch.classTitle}>品类</span>
                             <ul className={ch.classTypeList}>
-                            <li className={ch.classTypeName}><span className={ch.spanone}>全部</span></li>
+                            <li className={ch.classTypeName}><span className={ch.spanone} tabIndex={1}>全部</span></li>
                         {
                             this.state.daylist.map(ite=>
                                
                                     <li className={ch.classTypeName} key={ite.gc_id}>
-                                        <span className={ch.spanone}>{ite.gc_name}</span>
+                                        <span className={ch.spanone} tabIndex={1}>{ite.gc_name}</span>
                                     </li>
                                 
                                 )
@@ -79,7 +82,29 @@ class Hotvideo extends Component{
                             </ul>
                             </div>
                         </div>
-                        <div></div>
+                       
+                       {
+                        
+                        <div className={ch.brandFilterListo}>
+                            <div className={ch.brandFilterList} style= {this.state.isShow?{ height:"250px"}:{}} >
+                                <div className={ch.extendAll} onClick={this.zhankai.bind(this)}>展开全部</div>
+                                <span className={ch.brandTitle}>品牌</span>
+                                <div className={ch.brandTypeList}>
+                                    <ul className={ch.brandTypeUl}>
+                                        <li className={ch.brandTypeName}><span className={ch.spanttt} tabIndex={1}>全部</span></li>
+                                        {
+                                            this.state.brandlist.map(it=>
+                                                <li className={ch.brandTypeName} key={it.brand_id} >
+                                                    <span className={ch.spanttt} tabIndex={1}>{it.brand_name}</span>
+                                                </li>
+                                                )
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                       }
                     </div>
                 </div>
             </div>
@@ -87,6 +112,12 @@ class Hotvideo extends Component{
      	
 		</div>
     }
+    zhankai(){
+        this.setState({
+            isShow:!this.state.isShow
+          })
+    }
+  
     
 
 }
