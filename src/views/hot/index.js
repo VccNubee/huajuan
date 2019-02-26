@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import ch from './index.module.scss'
 import axios from 'axios'
-
+import Hotvideo from '../../component/hotChild/hotvideo'
 
 class Hot extends Component{
 	constructor(props) {
@@ -16,9 +16,9 @@ class Hot extends Component{
 		// console.log(this.props.location.state.myid)
 		
 		axios({
-			url:"/pc/hongren/getDetailData?hongren_uid=96029699471632"
+			url:`/pc/hongren/getDetailData?hongren_uid=${this.props.match.params.id}`
 		}).then(res=>{
-			console.log(res.data)
+			// console.log(res.data)
 			this.setState({
 				looplist:res.data.data.hongrenInfo
 			})
@@ -57,7 +57,9 @@ class Hot extends Component{
 				</div>
 				:null
 			}
+			<Hotvideo/>
 			</div>
+			
 		</div>
 	}
 
