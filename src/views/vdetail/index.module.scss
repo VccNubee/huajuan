@@ -1,0 +1,230 @@
+.vDetail {
+	a {
+		transition: all .4s;
+		color: #999;
+	}
+	a:hover {
+		color: #ff527d;
+	}
+	.layer {
+		width: 1200px;
+		margin: 0 auto;
+		padding-bottom: 60px;
+		.breadNav {
+			padding: 18px 0;
+			a:hover {
+				color: #ff527d;
+			}
+		}
+		.detailMain {
+			overflow: hidden;
+			margin-bottom: 70px;
+			.videoInfo {
+				overflow: hidden;
+				float: left;
+				width: 800px;
+				.video {
+					height: 600px;
+					box-shadow: 0 0 10px 0 hsla(0, 0%, 80%, .65);
+					border-radius: 10px;
+					overflow: hidden;
+					video {
+						width: 100%;
+						height: 600px;
+						background: #fff;
+					}
+				}
+				.videoTitle {
+					width: 100%;
+					padding-top: 20px;
+					padding-bottom: 20px;
+					border-bottom: 1px solid #eee;
+					display: -ms-flexbox;
+					display: flex;
+					-ms-flex-pack: justify;
+					justify-content: space-between;
+					-ms-flex-align: start;
+					align-items: flex-start;
+					h3 {
+						width: 600px;
+						display: -webkit-box;
+						margin-bottom: 0;
+						overflow: hidden;
+						font-size: 22px;
+						line-height: 26px;
+						color: #333;
+						font-weight: 600;
+						display: inline-block;
+					}
+					div {
+						color: #999;
+						font-size: 18px;
+						transition: all 0.4s;
+						cursor: pointer;
+						span {
+							margin-left: 8px;
+							font-size: 16px;
+						}
+					}
+					div:hover {
+						color: #ff527d;
+					}
+				}
+				.hongrenInfo {
+					padding-top: 10px;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					font-size: 12px;
+					color: #666;
+					.lm {
+						width: 450px;
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						.left {
+							img {
+								width: 40px;
+								height: 40px;
+								border-radius: 50%;
+								display: inline-block;
+							}
+							.user {
+								margin-left: 18px;
+								font-size: 14px;
+							}
+						}
+						.middle {
+							color: #666;
+							span {
+								margin-right: 18px;
+								i {
+									margin-left: 10px;
+								}
+							}
+						}
+					}
+					.right {
+						display: flex;
+						align-items: center;
+						div {
+							width: 100px;
+							border-radius: 10px;
+							border: 1px solid #ff527d;
+							text-align: center;
+							line-height: 20px;
+							margin-right: 20px;
+							color: #ff527d;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+			.aboutProducts {
+				overflow: hidden;
+				float: left;
+				margin-left: 20px;
+				height: 710px;
+				width: 380px;
+				h3 {
+					font-size: 18px;
+					line-height: 26px;
+					color: #333;
+					text-align: left;
+					margin-bottom: 10px;
+				}
+				.container {
+					width: 100%;
+					height: 100%;
+					overflow: auto;
+					.hotGoods {
+						.hotGoodsItem {
+							position: relative;
+							width: 100%;
+							margin-bottom: 20px;
+							display: flex;
+							cursor: pointer;
+							img {
+								width: 138px;
+								height: 138px;
+								border: 1px solid #efefef;
+							}
+							.watch {
+								width: 80px;
+								line-height: 28px;
+								color: #ff527d;
+								border: 1px solid #ff527d;
+								border-radius: 15px;
+								text-align: center;
+								font-size: 14px;
+								position: absolute;
+								bottom: 17px;
+								right: 10px;
+							}
+							.imgIndex {
+								width: 50px;
+								height: 22px;
+								color: #fff;
+								background: #ff527d;
+								position: absolute;
+								left: 0;
+								top: 10px;
+								border-radius: 0 11px 11px 0;
+								-webkit-box-sizing: border-box;
+								box-sizing: border-box;
+								line-height: 20px;
+								font-weight: 600;
+								z-index: 2;
+								text-align: center;
+							}
+							.itemInfo {
+								flex: 1;
+								margin-left: 16px;
+								h3 {
+									overflow: hidden;
+									text-overflow: ellipsis;
+									white-space: nowrap;
+									font-size: 14px;
+									font-weight: 600;
+									color: #333;
+									margin-bottom: 10px;
+								}
+								.name {
+									font-size: 14px;
+									display: -webkit-box;
+									color: #999;
+									overflow: hidden;
+									line-height: 20px;
+									margin-bottom: 5px;
+									height: 40px;
+								}
+								.spec {
+									font-size: 12px;
+									color: #999;
+									margin-bottom: 5px;
+									span {
+										margin-left: 6px;
+									}
+								}
+								.price {
+									color: #ff527d;
+									font-size: 20px;
+									font-weight: 600;
+									padding-right: 10px;
+								}
+								.mprice {
+									color: #ccc;
+									font-size: 12px;
+									text-decoration: line-through;
+								}
+							}
+						}
+					}
+				}
+				.container::-webkit-scrollbar {
+					display: none;
+				}
+			}
+		}
+	}
+}
