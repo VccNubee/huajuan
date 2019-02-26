@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { getGoodsDetail } from "./model";
 import styles from './index.module.scss'
-import { Breadcrumb, message } from 'antd';
+import { Breadcrumb, message, Spin } from 'antd';
 
 message.config({
 		top: 160
@@ -12,13 +12,15 @@ class gDetail extends Component {
 				this.state = {
 						goodsDetail: null,
 						currentVideo: 0,
-						count: 1
+						count: 1,
+						isLoading: false
 				};
 		}
 
 		render() {
 				return (
 						<div id={styles.gDetail}>
+								<Spin size="large" wrapperClassName={styles.spin} spinning={this.state.isLoading} delay={400}>
 								{
 										this.state.goodsDetail?
 												<main className={styles.layer}>
@@ -134,11 +136,15 @@ class gDetail extends Component {
 												</main>
 										:null
 								}
+								</Spin>
 						</div>
 				)
 		}
 
 		componentDidMount() {
+				this.setState({
+						isLoading: true
+				});
 				getGoodsDetail(this.props.match.params.id).then(res => {
 						console.log(res);
 						//没有这个商品 -404
@@ -148,8 +154,13 @@ class gDetail extends Component {
 								return
 						}
 						this.setState({
-								goodsDetail: res
-						})
+								goodsDetail: res,
+						});
+						setTimeout(() => {
+								this.setState({
+										isLoading: false
+								})
+						},700)
 				})
 		}
 		handleSum() {

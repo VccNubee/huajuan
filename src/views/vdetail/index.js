@@ -1,20 +1,20 @@
 import React,{Component} from 'react'
+import styles from './index.module.scss'
 
 class Vdetail extends Component{
 	constructor(props) {
 	  super(props);
-	
+
 	  this.state = {};
 	}
 
-	componentDidMount(){
-		// console.log(this.props.location.state.myid)
-	}
 
 	render(){
-		return <div>
-			Vdetail
-		</div>
+		return (
+				<div className={styles.vDetail}>
+						视频详情
+				</div>
+		)
 	}
 
 }
