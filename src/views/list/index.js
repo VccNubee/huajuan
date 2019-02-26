@@ -7,20 +7,55 @@ class List extends Component{
 	  super(props);
 	
 	  this.state = {
-		  pList:[]
+		  pList:[],
+		  add:0,
+		  flag:false
 		};
 	}
-		
-	  componentDidMount(){
-		  axios(`/pc/goods/gcGoods?gc_id=${this.props.match.params.id}&limit=15&offset=0`).then(
-			  (res)=>{
-				  this.setState({
-					  pList:res.data.goods_info
-					})
-				}
-				)
+	
+	componentDidMount(){
+		axios(`/pc/goods/gcGoods?gc_id=${this.props.match.params.id}&limit=15&offset=0`).then(
+			(res)=>{
+				this.setState({
+					pList:res.data.goods_info,
+					flag:true,
+					allCount:res.data.allCount
+				})
+			}
+			)
+			
+			window.onscroll = ()=>{
+				this.lazyLoad()
+			}
+			}
+			lazyLoad = ()=>{
+				
+				   	var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+				   		//变量windowHeight是可视区的高度
+				  	var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+				   		//变量scrollHeight是滚动条的总高度
+				   	var scrollHeight = document.documentElement.scrollHeight||document.body.scrollHeight;
+				               //滚动条到底部的条件
+				  	if(scrollTop+windowHeight>=scrollHeight-1000&&this.state.flag&&this.state.allCount>this.state.add+15){
+						this.setState({
+							add:this.state.add + 15,
+							flag:false
+						})
+					  	axios(`/pc/goods/gcGoods?gc_id=${this.props.match.params.id}&limit=15&offset=${this.state.add}`).then(
+							(res)=>{
+								this.setState({
+									pList:[...this.state.pList,...res.data.goods_info],
+									flag:true
+								})
+							  }
+						)
+				    }   
+
 			}
 			componentWillReceiveProps(nextprops){
+				this.setState({
+					add:0
+				})
 		// axios('/pc/pcIndex/class').then((res)=>{
 		// 	this.setState({
 		// 		aList:res.data.goodsClass
