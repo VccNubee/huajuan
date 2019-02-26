@@ -68,7 +68,7 @@ class Home extends Component{
 					<div className="swiper-wrapper">
 						{
 							this.state.bannerList.map((item)=>
-								<Link to={`/hot/${item.hongren_info.uid}`} className="swiper-slide" key={item.hongren_info.uid}>
+								<Link to={`/hongren/${item.hongren_info.uid}`} className="swiper-slide" key={item.hongren_info.uid}>
 									<img src={item.ad_image} alt=""/>
 									<p className={ccc.fan}>粉丝：<span>{item.hongren_info.fcount}</span></p>
 								</Link>
