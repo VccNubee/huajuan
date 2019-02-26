@@ -141,10 +141,13 @@ class gDetail extends Component {
 				)
 		}
 
-		componentDidMount() {
+		componentWillMount() {
 				this.setState({
 						isLoading: true
 				});
+		}
+
+		componentDidMount() {
 				getGoodsDetail(this.props.match.params.id).then(res => {
 						console.log(res);
 						//没有这个商品 -404

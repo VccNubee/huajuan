@@ -1,14 +1,15 @@
 import React,{Component} from 'react'
 import styles from './index.module.scss'
 import {getVideoDetail} from "./model";
-import {Breadcrumb} from "antd";
+import {Breadcrumb, message, Spin} from "antd";
 
 class Vdetail extends Component{
 	constructor(props) {
 	  super(props);
 
 	  this.state = {
-	  		videoDetail: null
+	  		videoDetail: null,
+				isLoading: true
 		};
 	}
 
@@ -16,9 +17,11 @@ class Vdetail extends Component{
 	render(){
 		return (
 				<div className={styles.vDetail}>
+						<Spin size="large" wrapperClassName={styles.spin} spinning={this.state.isLoading} delay={400}>
 						{
 								this.state.videoDetail?
 										<main className={styles.layer}>
+												{/*面包屑导航*/}
 												<div className={styles.breadNav}>
 														<Breadcrumb separator=">">
 																<Breadcrumb.Item href="/home">首页</Breadcrumb.Item>
@@ -31,9 +34,10 @@ class Vdetail extends Component{
 														</Breadcrumb>
 												</div>
 												<div className={styles.detailMain}>
+														{/*video*/}
 														<div className={styles.videoInfo}>
 																<div className={styles.video}>
-																		<video controls src={this.state.videoDetail.video.video_url} poster={this.state.videoDetail.video.cover_url}/>
+																		<video controls src={this.state.videoDetail.video.video_url} poster={this.state.videoDetail.video.image_url}/>
 																</div>
 																<div className={styles.videoTitle}>
 																		<h3>{this.state.videoDetail.video.video_title}</h3>
@@ -59,6 +63,7 @@ class Vdetail extends Component{
 																		</div>
 																</div>
 														</div>
+														{/*相关视频*/}
 														<div className={styles.aboutProducts}>
 																<h3>相关商品 {this.state.videoDetail.goods_info.length}</h3>
 																<div className={styles.container}>
@@ -84,6 +89,7 @@ class Vdetail extends Component{
 																</div>
 														</div>
 												</div>
+												{/*更多视频*/}
 												<div className={styles.moreVideos}>
 														<h3>更多相关视频</h3>
 														<div className={styles.videoList}>
@@ -92,6 +98,10 @@ class Vdetail extends Component{
 																				<div className={styles.videoItem} key={item.video_id}>
 																						<div className={styles.img} onClick={this.toVdetail.bind(this,item.video_id)}>
 																								<img src={item.image_url} alt=""/>
+																								<div className={styles.videoTime}>
+																										<i className="iconfont icon-shipin"/>
+																										<span>{Vdetail.handleVideoTime(item.video_length)}</span>
+																								</div>
 																						</div>
 																						<div className={styles.videoName}>
 																								{item.video_title}
@@ -111,16 +121,33 @@ class Vdetail extends Component{
 										</main>
 								:null
 						}
+						</Spin>
 				</div>
 		)
 	}
 
+		componentWillMount() {
+				this.setState({
+						isLoading: true
+				});
+		}
+
 		componentDidMount() {
 				getVideoDetail(this.props.match.params.id).then(res => {
 						console.log(res);
+						if (res.code === 11501) {
+								message.error(res.info);
+								this.props.history.push('/home');
+								return
+						}
 						this.setState({
 								videoDetail: res
-						})
+						});
+						setTimeout(() => {
+								this.setState({
+										isLoading: false
+								})
+						},600)
 				})
 		}
 
@@ -133,6 +160,12 @@ class Vdetail extends Component{
 						});
 						document.documentElement.scrollTop = document.body.scrollTop = 0
 				})
+		}
+
+		static handleVideoTime(second) {
+			let m = Math.floor(second / 60);
+			let s = (second % 60)<10 ? '0'+(second % 60) : (second % 60);
+			return `${m}:${s}`
 		}
 
 		toGdetail(id) {
