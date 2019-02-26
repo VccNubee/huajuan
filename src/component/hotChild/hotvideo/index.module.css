@@ -134,3 +134,36 @@
   width: 100%;
   border-bottom: 1px solid #eee;
 }
+
+.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo {
+  width: 100%;
+  line-height: 50px;
+  font-size: 12px;
+}
+
+.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTitle {
+  float: left;
+  color: #333;
+  font-weight: 600;
+  margin-right: 20px;
+  width: 24px;
+  height: 50px;
+}
+
+.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList {
+  float: left;
+}
+
+.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName {
+  float: left;
+}
+
+.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName .spanone {
+  cursor: pointer;
+  padding: 0 17px;
+  border-right: 1px solid #eee;
+}
+
+.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName .spanone span:hover {
+  color: #ff527d;
+}
