@@ -52,6 +52,9 @@ class List extends Component{
 				    }   
 
 			}
+			componentWillUnmount(){
+				window.onscroll = null
+			}
 			componentWillReceiveProps(nextprops){
 				this.setState({
 					add:0
