@@ -65,7 +65,7 @@ class Vdetail extends Component{
 																<div className={styles.hotGoods}>
 																		{
 																				this.state.videoDetail.goods_info.map((item,index) =>
-																						<div className={styles.hotGoodsItem} onClick={this.toGdetail.bind(this,item.goods_id)}>
+																						<div className={styles.hotGoodsItem} key={item.goods_id} onClick={this.toGdetail.bind(this,item.goods_id)}>
 																								<img src={item.goods_image} alt=""/>
 																								<div className={styles.imgIndex}>{index+1}</div>
 																								<div className={styles.watch}>立即查看</div>
@@ -87,7 +87,25 @@ class Vdetail extends Component{
 												<div className={styles.moreVideos}>
 														<h3>更多相关视频</h3>
 														<div className={styles.videoList}>
-
+																{
+																		this.state.videoDetail.more_video.map(item =>
+																				<div className={styles.videoItem} key={item.video_id}>
+																						<div className={styles.img} onClick={this.toVdetail.bind(this,item.video_id)}>
+																								<img src={item.image_url} alt=""/>
+																						</div>
+																						<div className={styles.videoName}>
+																								{item.video_title}
+																						</div>
+																						<div className={styles.videoBottom}>
+																								<div className={styles.user} onClick={this.toHongren.bind(this,item.hongren_info.uid)}>
+																									<img src={item.hongren_info.user_avatar} alt=""/>
+																									<span className={styles.username}>{item.hongren_info.user_name}</span>
+																								</div>
+																								<span className={styles.aboutpro}>相关商品：{item.goods_count}</span>
+																						</div>
+																				</div>
+																		)
+																}
 														</div>
 												</div>
 										</main>
@@ -106,10 +124,28 @@ class Vdetail extends Component{
 				})
 		}
 
+		componentWillReceiveProps(nextProps, nextContext) {
+			console.log(nextProps);
+				getVideoDetail(nextProps.match.params.id).then(res => {
+						console.log(res);
+						this.setState({
+								videoDetail: res
+						});
+						document.documentElement.scrollTop = document.body.scrollTop = 0
+				})
+		}
+
 		toGdetail(id) {
 			this.props.history.push(`/gdetail/${id}`)
 		}
 
+		toHongren(id) {
+				this.props.history.push(`/hongren/${id}`)
+		}
+
+		toVdetail(id) {
+				this.props.history.push(`/vdetail/${id}`)
+		}
 
 }
 

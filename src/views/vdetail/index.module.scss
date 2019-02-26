@@ -226,5 +226,60 @@
 				}
 			}
 		}
+		.moreVideos {
+			h3 {
+				font-size: 24px;
+				color: #333;
+				font-weight: 600;
+				margin-bottom: 20px;
+			}
+			.videoList {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				.videoItem {
+					width: 220px;
+					margin-bottom: 30px;
+					.img {
+						height: 220px;
+						border-radius: 8px;
+						overflow: hidden;
+						cursor: pointer;
+						img {
+							width: 100%;
+							height: 100%;
+						}
+					}
+					.videoName {
+						font-size: 14px;
+						color: #333;
+						text-align: left;
+						display: -webkit-box;
+						-webkit-line-clamp: 2;
+						overflow: hidden;
+						line-height: 20px;
+						height: 40px;
+						margin-top: 10px;
+					}
+					.videoBottom {
+						display: flex;
+						margin-top: 10px;
+						justify-content: space-between;
+						font-size: 12px;
+						line-height: 30px;
+						.user {
+							display: flex;
+							cursor: pointer;
+							img {
+								width: 30px;
+								height: 30px;
+								border-radius: 50%;
+								margin-right: 12px;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
