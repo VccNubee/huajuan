@@ -3,6 +3,7 @@ import 'swiper/dist/css/swiper.min.css'
 import React,{Component} from 'react'
 import axios from 'axios'
 import './index.scss'
+import {Link} from 'react-router-dom'
 
 
 
@@ -44,7 +45,12 @@ class Swipe extends Component{
                 <div className="swiper-wrapper">
                     {
                         this.state.videoSwipe.map((item)=>
-                        <div key={item.notify.content.video_id} className="swiper-slide"><img src={item.ad_image} alt=""/></div>
+                        <Link to={`/vdetail/${item.notify.content.video_id}`} key={item.notify.content.video_id} className="swiper-slide">
+                            <div className='topdiv'></div>
+                            <img src={item.ad_image} alt=""/>
+                            <p className='v1'>{`${Math.floor(item.video_length/60)}:${item.video_length%60}`} | {item.hongren_info.user_name}</p>
+                            <p className='v2'>{item.title}</p>
+                        </Link>
                         )
                     }
                 </div>

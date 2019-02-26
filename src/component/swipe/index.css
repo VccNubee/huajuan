@@ -6,7 +6,39 @@
 
 .swiper-container .swiper-slide {
   border-radius: 15px;
+  display: block;
   overflow: hidden;
+  position: relative;
+}
+
+.swiper-container .swiper-slide .topdiv {
+  background-image: linear-gradient(-180deg, transparent, rgba(0, 0, 0, 0.36) 95%);
+  width: 600px;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+}
+
+.swiper-container .swiper-slide p {
+  z-index: 98;
+  position: absolute;
+  left: 50px;
+  color: #fff;
+}
+
+.swiper-container .swiper-slide .v1 {
+  bottom: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  padding: 0 15px;
+  border-radius: 15px;
+}
+
+.swiper-container .swiper-slide .v2 {
+  bottom: 10px;
+  font-size: 21px;
 }
 
 .swiper-container .swiper-slide img {

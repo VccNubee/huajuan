@@ -2,7 +2,6 @@
     width: 1200px;
     margin: 0 auto;
     display: flex;
-    display: flex;
     flex-wrap:wrap;
     justify-content:space-between;
     margin-top: 20px;
@@ -13,7 +12,50 @@
     .zz{
         width:286px;
         height: 450px;
-        background: #666;
+        display: flex;
+        flex-wrap:wrap;
+        justify-content:space-between;
+        flex-direction:column;    
+        a{
+            display: block;
+            height: 215px;
+            width: 286px;
+            border-radius: 15px;
+            display: block;
+            overflow: hidden;
+            position: relative;
+            .topdiv{
+                background-image: linear-gradient(-180deg,transparent,rgba(0,0,0,.36) 95%);
+                width: 600px;
+                height: 100px;
+                position: absolute;
+                bottom: 0;
+            }
+            p{
+                z-index: 98;
+                position: absolute;
+                left: 10px;
+                color: #fff;
+                margin-bottom: 0;
+            }
+            .v1{
+                bottom: 60px;
+                background: rgba(0, 0, 0, .5);
+                height: 30px;
+                line-height: 30px;
+                font-size: 16px;
+                padding: 0 15px;
+                border-radius: 15px;
+    
+            }
+            .v2{
+                bottom: 10px;
+                font-size: 16px;
+            }
+            img{
+                height: 215px;
+            }
+        }
     }
     .user{
         width: 274px;
@@ -21,5 +63,130 @@
         box-sizing: border-box;
         border: 1px solid #ccc;
         border-radius: 10px;
+    }
+}
+.mid{
+    .topp{
+        font-size: 21px;
+        font-weight: 600;
+        margin:15px 0;
+        height: 30px;
+        line-height: 30px;
+        color: #000;
+        a{
+            font-weight: normal;
+            float: right;
+            font-size: 16px;
+            color: #666;
+            line-height: 30px;
+        }
+    }
+    width: 1200px;
+    margin: 0 auto;
+    :global(.swiper-ccc){
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+        :global(.swiper-button-prev){
+            opacity: 0;
+            transition: all .5s;
+        }
+        :global(.swiper-button-next){
+            opacity: 0;
+            transition: all .5s;
+        }
+        :global(.swiper-button-prev):hover{
+            opacity: 1;
+        }
+        :global(.swiper-button-next):hover{
+            opacity: 1;
+        }
+        :global(.swiper-wrapper){
+            :global(.swiper-slide){
+                width: 224px;
+                display: block;
+                border-radius: 15px;
+                overflow:hidden;
+                position: relative;
+                .fan{
+                    position: absolute;
+                    background: #fff;
+                    bottom: 10px;
+                    margin-bottom: 0;
+                    padding: 0 10px;
+                    border-radius: 10px;
+                    right: 10px;
+                    span{
+                        color:#ff527d;
+                    }
+                }
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+.bottom{
+    .topp{
+        color:#000;
+        height: 30px;
+        line-height: 30px;
+        font-size: 21px;
+        font-weight: 600;
+        margin-bottom: 0;
+        margin-top:15px;
+    }
+    width: 1200px;
+    margin: 0 auto;
+    .dataList{
+        display: flex;
+        flex-wrap:wrap;
+        justify-content:space-between;
+        li{
+            margin-top: 20px;
+            width: 225px;
+            box-sizing: border-box;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            float: left;
+            a{
+                padding: 10px;
+                display: block;
+                div{
+                    overflow: hidden;
+                    width: 100%;
+                    img{
+                        width: 100%;
+                    }
+                }
+                p{
+                    height: 30px;
+                    margin: 0;
+                    line-height: 30px;
+                    font-size: 14px;
+                    color: #000;
+                    white-space : nowrap;
+                    text-overflow:ellipsis; 
+                    overflow:hidden;
+                }
+                .p1{
+                    font-weight: 600;
+                }
+                .p3{
+                    margin-top: 10px;
+                    .s1{
+                        font-size: 24px;
+                        font-weight: 600;
+                        color: #ff527d;
+                    }
+                    .s2{
+                        color: #ccc;
+                        text-decoration: line-through;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
     }
 }
