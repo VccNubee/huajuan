@@ -84,7 +84,6 @@ class Vdetail extends Component{
 																</div>
 														</div>
 												</div>
-
 												<div className={styles.moreVideos}>
 														<h3>更多相关视频</h3>
 														<div className={styles.videoList}>

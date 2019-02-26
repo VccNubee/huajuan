@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './component/header';
 import Nav from './component/nav';
 import Footer from './component/footer'
+import {BackTop} from "antd";
 class App extends Component {
   render() {
     return (
@@ -12,6 +13,7 @@ class App extends Component {
           this.props.children
         }
         <Footer/>
+        <BackTop visibilityHeight={600}/>
       </div>
     );
   }
