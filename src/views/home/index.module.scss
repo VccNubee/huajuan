@@ -1,0 +1,25 @@
+.top{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    margin-top: 20px;
+    .swipe{
+        width: 600px;
+        height: 450px;
+    }
+    .zz{
+        width:286px;
+        height: 450px;
+        background: #666;
+    }
+    .user{
+        width: 274px;
+        height: 450px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+}

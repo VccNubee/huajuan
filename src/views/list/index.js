@@ -8,20 +8,19 @@ class List extends Component{
 	
 	  this.state = {
 		  pList:[]
-	  };
+		};
 	}
-	componentDidMount(){
-		axios(`/pc/goods/gcGoods?gc_id=${this.props.match.params.id}&limit=15&offset=0`).then(
-			(res)=>{
-				this.setState({
-					pList:res.data.goods_info
-				})
-				console.log(this.state.pList)
-			}
-		)	
 		
-	}
-	componentWillReceiveProps(nextprops){
+	  componentDidMount(){
+		  axios(`/pc/goods/gcGoods?gc_id=${this.props.match.params.id}&limit=15&offset=0`).then(
+			  (res)=>{
+				  this.setState({
+					  pList:res.data.goods_info
+					})
+				}
+				)
+			}
+			componentWillReceiveProps(nextprops){
 		// axios('/pc/pcIndex/class').then((res)=>{
 		// 	this.setState({
 		// 		aList:res.data.goodsClass
@@ -33,7 +32,6 @@ class List extends Component{
 				this.setState({
 					pList:res.data.goods_info
 				})
-				console.log(this.state.pList)
 			}
 		)
 	}

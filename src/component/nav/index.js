@@ -11,14 +11,15 @@ class Nav extends Component{
             pList:[]
         }
     }
+
     componentDidMount(){
         axios('/pc/pcIndex/class').then((res)=>{
             this.setState({
                 pList:res.data.goodsClass
             })
-            console.log(this.state.pList)
         })
     }
+
     render() {
      return <div id={ccc.nav}>
         <ul>
@@ -46,10 +47,10 @@ class Nav extends Component{
             <li><NavLink to='/chargeTutoria' activeClassName={ccc.active}><i></i>化妆教学</NavLink></li>
             
         </ul>
-        <ul>
-        <li>品类</li>
-        </ul>
-     </div>
+{        //<ul>
+//         <li>品类</li>
+//         </ul>
+}     </div>
     }
 }
 
