@@ -1,20 +1,25 @@
 import React,{Component} from 'react'
+import styles from './index.module.scss'
+import { searchHongren, searchGoods } from "./model";
 
 class Search extends Component{
 	constructor(props) {
 	  super(props);
-	
+
 	  this.state = {};
 	}
 
-	componentDidMount(){
-		// console.log(this.props.location.state.myid)
-	}
 
 	render(){
-		return <div>
-			Search
-		</div>
+		return (
+				<div className={styles.search}>
+
+				</div>
+		)
+	}
+
+	componentDidMount() {
+			console.log(this.props.location)
 	}
 
 }

@@ -151,7 +151,7 @@ class gDetail extends Component {
 				getGoodsDetail(this.props.match.params.id).then(res => {
 						console.log(res);
 						//没有这个商品 -404
-						if (res.code === 10020) {
+						if (res.code !== 200) {
 								message.error(res.info);
 								this.props.history.push('/home');
 								return

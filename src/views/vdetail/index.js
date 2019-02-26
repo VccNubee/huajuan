@@ -135,7 +135,7 @@ class Vdetail extends Component{
 		componentDidMount() {
 				getVideoDetail(this.props.match.params.id).then(res => {
 						console.log(res);
-						if (res.code === 11501) {
+						if (res.code !== 200) {
 								message.error(res.info);
 								this.props.history.push('/home');
 								return
