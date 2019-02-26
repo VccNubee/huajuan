@@ -189,6 +189,11 @@
 
 .bottom .dataList li a div img {
   width: 100%;
+  transition: all .5s;
+}
+
+.bottom .dataList li a div img:hover {
+  transform: scale(1.2);
 }
 
 .bottom .dataList li a p {

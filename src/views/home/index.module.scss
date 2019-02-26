@@ -159,6 +159,10 @@
                     width: 100%;
                     img{
                         width: 100%;
+                        transition: all .5s;
+                    }
+                    img:hover{
+                        transform: scale(1.2);
                     }
                 }
                 p{
