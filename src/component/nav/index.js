@@ -48,14 +48,7 @@ class Nav extends Component{
         </ul>
         <ul>
         <li>品类</li>
-        {
-            this.state.aList.map(
-                (item)=>
-                <li key={item.gc_id}><NavLink activeClassName={ccc.active} to={`/list/${item.gc_id}`}>{item.gc_name}</NavLink></li>
-            )
-        }
         </ul>
-
      </div>
     }
 }
