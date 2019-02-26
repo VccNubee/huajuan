@@ -1,21 +1,115 @@
 import React,{Component} from 'react'
 import styles from './index.module.scss'
+import {getVideoDetail} from "./model";
+import {Breadcrumb} from "antd";
 
 class Vdetail extends Component{
 	constructor(props) {
 	  super(props);
 
-	  this.state = {};
+	  this.state = {
+	  		videoDetail: null
+		};
 	}
 
 
 	render(){
 		return (
 				<div className={styles.vDetail}>
-						视频详情
+						{
+								this.state.videoDetail?
+										<main className={styles.layer}>
+												<div className={styles.breadNav}>
+														<Breadcrumb separator=">">
+																<Breadcrumb.Item href="/home">首页</Breadcrumb.Item>
+																{
+																		this.state.videoDetail.tags.map(item =>
+																				<Breadcrumb.Item href={`/list/${item.gc_id}`} key={item.tag_id}>{item.tag_name}</Breadcrumb.Item>
+																		)
+																}
+																<Breadcrumb.Item>{this.state.videoDetail.video.video_title}</Breadcrumb.Item>
+														</Breadcrumb>
+												</div>
+												<div className={styles.detailMain}>
+														<div className={styles.videoInfo}>
+																<div className={styles.video}>
+																		<video controls src={this.state.videoDetail.video.video_url} poster={this.state.videoDetail.video.cover_url}/>
+																</div>
+																<div className={styles.videoTitle}>
+																		<h3>{this.state.videoDetail.video.video_title}</h3>
+																		<div className="iconfont icon-xin"><span>收藏</span></div>
+																</div>
+																<div className={styles.hongrenInfo}>
+																		<div className={styles.lm}>
+																				<a href={`/hongren/${this.state.videoDetail.hongren_info.uid}`}>
+																		<div className={styles.left}>
+																				<img src={this.state.videoDetail.hongren_info.user_avatar} alt=""/>
+																				<span className={styles.user}>{this.state.videoDetail.hongren_info.user_name}</span>
+																		</div>
+																				</a>
+																		<div className={styles.middle}>
+																				<span>小铺号<i>{this.state.videoDetail.hongren_info.hongren_number}</i></span>
+																				<span>粉丝<i>{this.state.videoDetail.hongren_info.fcount}</i></span>
+																				<span>宝贝<i>{this.state.videoDetail.goods_count}</i></span>
+																		</div>
+																		</div>
+																		<div className={styles.right}>
+																				<div className={styles.follow}>+关注</div>
+																				<a href={`/hongren/${this.state.videoDetail.hongren_info.uid}`}>进店逛逛></a>
+																		</div>
+																</div>
+														</div>
+														<div className={styles.aboutProducts}>
+																<h3>相关商品 {this.state.videoDetail.goods_info.length}</h3>
+																<div className={styles.container}>
+																<div className={styles.hotGoods}>
+																		{
+																				this.state.videoDetail.goods_info.map((item,index) =>
+																						<div className={styles.hotGoodsItem} onClick={this.toGdetail.bind(this,item.goods_id)}>
+																								<img src={item.goods_image} alt=""/>
+																								<div className={styles.imgIndex}>{index+1}</div>
+																								<div className={styles.watch}>立即查看</div>
+																								<div className={styles.itemInfo}>
+																										<h3>{item.goods_desc}</h3>
+																										<div className={styles.name}>{item.goods_name}</div>
+																										<div className={styles.spec}>规格	<span>{item.goods_spec}</span></div>
+																										<div className={styles.price}>￥{item.goods_price}</div>
+																										<div className={styles.mprice}>￥{item.goods_marketprice}</div>
+																								</div>
+																						</div>
+																				)
+																		}
+
+																</div>
+																</div>
+														</div>
+												</div>
+												<div className={styles.moreVideos}>
+														<h3>更多相关视频</h3>
+														<div className={styles.videoList}>
+
+														</div>
+												</div>
+										</main>
+								:null
+						}
 				</div>
 		)
 	}
+
+		componentDidMount() {
+				getVideoDetail(this.props.match.params.id).then(res => {
+						console.log(res);
+						this.setState({
+								videoDetail: res
+						})
+				})
+		}
+
+		toGdetail(id) {
+			this.props.history.push(`/gdetail/${id}`)
+		}
+
 
 }
 

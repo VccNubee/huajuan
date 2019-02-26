@@ -120,6 +120,34 @@
                 .classFilterList{
                     width: 100%;
                     border-bottom: 1px solid #eee;
+                    .classfilterListtwo{
+                        width: 100%;
+                        line-height: 50px;
+                        font-size: 12px;
+                        .classTitle{
+                            float: left;
+                            color: #333;
+                            font-weight: 600;
+                            margin-right: 20px;
+                            width: 24px;
+                            height: 50px;
+                        }
+                        .classTypeList{
+                            float: left;
+                            .classTypeName{
+                                float: left;
+                                
+                                .spanone{
+                                    span:hover{
+                                        color:#ff527d;
+                                    }
+                                    cursor: pointer;
+                                    padding: 0 17px;
+                                    border-right: 1px solid #eee;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

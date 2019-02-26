@@ -61,18 +61,24 @@ class Hotvideo extends Component{
                 <h3 className={ch.allGoodsTitle}>全部宝贝<span className={ch.spanclass}>共({this.state.loplist.goodsCount})件</span></h3>
                 <div className={ch.filterList}>
                     <div className={ch.filterListone}>
-
+                        <div className={ch.classFilterList}>
+                            <div className={ch.classfilterListtwo}>
+                            <span className={ch.classTitle}>品类</span>
+                            <ul className={ch.classTypeList}>
+                            <li className={ch.classTypeName}><span className={ch.spanone}>全部</span></li>
                         {
                             this.state.daylist.map(ite=>
-                                <div className={ch.classFilterList}>
-                                    <div className={ch.filterList}>
-                                        
-                                    </div>
-                                </div>
+                               
+                                    <li className={ch.classTypeName} key={ite.gc_id}>
+                                        <span className={ch.spanone}>{ite.gc_name}</span>
+                                    </li>
+                                
                                 )
                         }
-                        
 
+                            </ul>
+                            </div>
+                        </div>
                         <div></div>
                     </div>
                 </div>
