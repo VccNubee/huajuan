@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import ch from './index.module.scss'
 import axios from 'axios'
 import Hotvideo from '../../component/hotChild/hotvideo'
-
 class Hot extends Component{
 	constructor(props) {
 	  super(props);
@@ -57,7 +56,8 @@ class Hot extends Component{
 				</div>
 				:null
 			}
-			<Hotvideo/>
+			<Hotvideo {...this.props}/>
+			
 			</div>
 			
 		</div>
