@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import ccc from './index.module.scss'
 import axios from 'axios'
 import {NavLink,Link} from 'react-router-dom'
+import store from '../../store'
 class List extends Component{
 	constructor(props) {
 	  super(props);
@@ -14,6 +15,10 @@ class List extends Component{
 	}
 	
 	componentDidMount(){
+		store.dispatch({
+			type:'fatherId',
+			payLoad:this.props.match.params.id
+		})
 		axios(`/pc/goods/gcGoods?gc_id=${this.props.match.params.id}&limit=15&offset=0`).then(
 			(res)=>{
 				this.setState({
@@ -24,10 +29,10 @@ class List extends Component{
 			}
 			)
 			
-			window.onscroll = ()=>{
-				this.lazyLoad()
-			}
-			}
+		window.onscroll = ()=>{
+			this.lazyLoad()
+		}
+	}
 			lazyLoad = ()=>{
 				
 				   	var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
@@ -59,6 +64,11 @@ class List extends Component{
 				this.setState({
 					add:0
 				})
+				store.dispatch({
+					type:'fatherId',
+					payLoad:nextprops.match.params.id
+				})
+				console.log(nextprops.match.params.id,"dispatch")
 		// axios('/pc/pcIndex/class').then((res)=>{
 		// 	this.setState({
 		// 		aList:res.data.goodsClass
