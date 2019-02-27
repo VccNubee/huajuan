@@ -1,7 +1,6 @@
 import React,{Component} from 'react'
 import ccc from './index.module.scss'
 import axios from 'axios'
-import Swipe from '../../component/swipe'
 import {Link} from 'react-router-dom'
 import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
@@ -23,7 +22,6 @@ class HotList extends Component {
             allCount:0
     });
         axios('/pc/hongren/hongrenList?limit=10&offset=0').then((res)=>{
-            console.log(res.data.data.hongren_list)
             this.setState({
                 dataList:res.data.data.hongren_list
             })
@@ -53,8 +51,6 @@ class HotList extends Component {
            		//变量scrollHeight是滚动条的总高度
            	var scrollHeight = document.documentElement.scrollHeight||document.body.scrollHeight;
                        //滚动条到底部的条件
-        console.log(this.state.flag)
-        console.log(scrollTop+windowHeight>=scrollHeight-1000)
           	if(scrollTop+windowHeight>=scrollHeight-1000&&this.state.flag&&this.state.allCount>this.state.add+15){
             this.setState({
                 add:this.state.add + 15,
@@ -93,11 +89,11 @@ class HotList extends Component {
     }
 
     render(){
-        return <div className={ccc.HotList}>
+        return <div className={ccc.HotList}>    
             <p className={ccc.top}>红人列表</p>
             <ul className={ccc.list}>
-                {this.state.dataList.map((item)=>
-                    <li className={ccc.user} key={item.hongren_id}>
+                {this.state.dataList.map((item,index)=>
+                    <li className={ccc.user} key={index}>
                         <div className={ccc.mine}>
                             <img src={item.user_avatar} alt=""/>
                             <p>
@@ -107,7 +103,7 @@ class HotList extends Component {
                             <Link to={`/hongren/${item.uid}`}>进入店铺</Link>
                         </div>
                         <div className={ccc.swipe}>
-                        <div className="swiper-ccc" key={this.state.dataList.length}>
+                        <div className="swiper-ccc">
                         <div className="swiper-wrapper">
                         {
                             item.hasOwnProperty('goods')?
