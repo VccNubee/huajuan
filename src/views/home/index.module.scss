@@ -63,6 +63,91 @@
         box-sizing: border-box;
         border: 1px solid #ccc;
         border-radius: 10px;
+        padding: 20px;
+        .head{
+            width: 100%;
+            .Img{
+                margin: 0 auto;
+                height: 66px;
+                width: 66px;
+                border-radius: 33px;
+                box-shadow: 0 0 8px rgba(0,0,0,.5);
+                margin-top: 10px;
+            }
+            button{
+                display: block;
+                margin: 0 auto;
+                margin-top: 10px;
+                border: 1px solid #ff527d;
+                border-radius: 15px;
+                height: 30px;
+                line-height: 30px;
+                font-size: 12px;
+                padding:  0 30px;
+                background: #fff;
+                color: #ff527d;
+                cursor: pointer;
+            }
+            p{
+                width: 100%;
+                text-align: center;
+                color:#666;
+                font-size: 12px;
+                height: 50px;
+                line-height: 50px;
+                margin-bottom: 0;
+                border-bottom: 1px solid #eee;
+            }
+        }
+        .body{
+            display: flex;
+            width: 100%;
+            flex-wrap:wrap;
+            justify-content:space-between;
+            div{
+                flex: 50%;
+                height: 80px;
+                text-align: center; 
+                box-sizing: border-box;
+                padding-top: 16px;
+                border-bottom: 1px solid #eee;
+                cursor: pointer;
+                color: #ccc;
+                span{
+                    font-size: 24px;
+                }
+                p{
+                    font-size: 12px;
+                }
+            }
+            .dd1{
+                border-right: 1px solid #eee;
+            }
+        }
+        .foot{
+            height: 100px;
+            width: 100%;
+            p{
+                height: 30px;
+                line-height: 30px;
+                color:#ff527d;
+                margin: 0;
+                margin-top: 10px;
+            }
+            ul{
+                height: 50px;
+                width: 100%;
+                li{
+                    span{
+                        color:#ff527d;
+                        font-weight: 600;
+                        font-size: 16px;
+                        padding-right: 3px;
+                    }
+                }
+            }
+        }
+        
     }
 }
 .mid{
