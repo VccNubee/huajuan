@@ -163,6 +163,7 @@
 }
 
 .bottom .dataList {
+  margin-bottom: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

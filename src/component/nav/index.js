@@ -17,8 +17,6 @@ class Nav extends Component{
     }
     componentDidMount(){
         store.subscribe(()=>{
-            console.log(store.getState().fatherId)
-            console.log(this.state.pList)
             this.setState({
                 isShow:store.getState().isShow
             })
@@ -33,8 +31,13 @@ class Nav extends Component{
                     
                             this.setState({
                                 childrenList:data[0].children
-                            },()=>console.log(this.state.childrenList))
+                            })
                         }
+                    }
+                    if(!store.getState().fatherId){
+                        this.setState({
+                            childrenList:[]
+                        })
                     }
         })
         axios('/pc/pcIndex/class').then((res)=>{
@@ -50,25 +53,28 @@ class Nav extends Component{
                             fatherId:store.getState().fatherId
                         })
                         
-                                this.setState({
-                                    childrenList:data[0].children
-                                },()=>console.log(this.state.childrenList))
-                            }
-                        }
-    
+                        this.setState({
+                            childrenList:data[0].children
+                        })
+                    }
+                }
+                // if(this.state.childrenList.length==0){
+                //     console.log(this)
+                // }
+                
             })
         })
     }
     render() {
-     return <div id={ccc.nav}>
-     {  this.state.isShow?<div>
-        <div className={ccc.out}>
+        return <div id={ccc.nav}>
+        {  this.state.isShow?<div>
+            <div className={ccc.out}>
         
         <ul className={ccc.eee}>
             {
                 this.state.pList.map(
                     (item)=><li key={item.gc_id}>
-                        <NavLink to={`/list/${item.gc_id}`} activeClassName={ccc.active}>
+                        <NavLink replace to={`/list/${item.gc_id}`} activeClassName={ccc.active}>
                             {item.pc_icon?
                             <img src={item.pc_icon} alt=""/>:
                             <i></i>}
@@ -94,10 +100,10 @@ class Nav extends Component{
                 this.state.childrenList.length?
                 <ul className={ccc.aaa}>
                     <li className={ccc.first}>品类</li>
-                    <li><NavLink to={`/list/${this.state.fatherId}`} activeClassName={ccc.active}>全部</NavLink></li>
+                    <li><NavLink replace to={`/list/${this.state.fatherId}`} activeClassName={ccc.active}>全部</NavLink></li>
                         {
                         this.state.childrenList.map((item)=>
-                            <li key={item.gc_id}><NavLink activeClassName={ccc.active} to={`/list/${item.gc_id}`}>{item.gc_name}</NavLink></li>
+                            <li key={item.gc_id}><NavLink replace activeClassName={ccc.active} to={`/list/${item.gc_id}`}>{item.gc_name}</NavLink></li>
                         )
                         }
         
