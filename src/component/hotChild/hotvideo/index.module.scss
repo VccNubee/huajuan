@@ -1,12 +1,11 @@
    .mainBody{
     margin: 0 auto;
     width: 1200px;
-    margin-top: -150px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-   
+    
    .hotSeries{
-       margin-top: 145px; 
+       
         border-radius: 10px;
         width: 100%;
         background: #fff;
@@ -135,16 +134,16 @@
                             float: left;
                             .classTypeName{
                                 float: left;
-                                span:hover{
+                                .spanone:hover{
                                     color: #ff527d;
                                 }
                                
-                                span:visited {
+                                .spanone:visited {
                                     color: #ff527d;
                                 
                                 }
                                
-                                span:focus{
+                                .spanone:focus{
                                     color: #ff527d;
                                    
                                 }
@@ -233,5 +232,76 @@
                 }
             }
         }
+      
+      .goodsItemList{
+        display: flex;
+        margin-bottom: 0;
+        flex-wrap: wrap;
+        .goodsItem{
+            width: 224px;
+            height: 319px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            .goodsItemoo{
+                width: 100%;
+                height: 100%;
+                border: 1px solid #eee;
+                border-radius: 10px;
+                padding: 10px;
+                cursor: pointer;
+                .goodsImageBox{
+                    position: relative;
+                    overflow: hidden;
+                    .originalImage{
+                        vertical-align: middle;
+                        border-style: none;
+                        width: 100%;
+                        transition: transform .3s,-webkit-transform .3s;
+                    }
+                }
+                .goodsDesc{
+                    font-size: 14px;
+                    color: #333;
+                    transition: color .3s;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                .goodsName{
+                    margin: 5px 0 0;
+                    font-size: 14px;
+                    color: #333;
+                    transition: color .3s;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                .goodsPriceBox{
+                    margin: 8px 0 0;
+                    .spangoodsPrice{
+                        font-size: 20px;
+                        color: #ff527d;
+                        font-weight: 600;
+                        .bb{
+                            font-weight: 500;
+                            font-size: 16px;
+                        }
+                    }
+                    .goodsMarketprice{
+                        font-size: 14px;
+                        color: #ccc;
+                        text-decoration: line-through;
+                        font-weight: 100;
+                        margin-left: 10px;
+                    }
+                }
+
+            }
+        }
+        .goodsItem:nth-child(5n){
+            margin-right: 0;
+        }
+      }
+
     }
 }

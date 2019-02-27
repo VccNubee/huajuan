@@ -27,6 +27,7 @@ class Hot extends Component{
 	render(){
 		return <div>
 			<link rel="stylesheet" href="./iconfont.css"></link>
+			<div className={ch.fff}>
 			<div className={ch.headBg}>
 			 {
 				this.state.looplist?
@@ -54,12 +55,15 @@ class Hot extends Component{
 					</div>
 					
 				</div>
+				
 				:null
+				
 			}
 			<Hotvideo {...this.props}/>
 			
 			</div>
-			
+			</div>
+
 		</div>
 	}
 

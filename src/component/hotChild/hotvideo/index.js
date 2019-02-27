@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import axios from 'axios'
 import ch from './index.module.scss'
-
+import store from '../../../store'
 class Hotvideo extends Component{
 	constructor(props) {
 	  super(props);
@@ -11,11 +11,19 @@ class Hotvideo extends Component{
           loplist:[],
           daylist:[],
           brandlist:[],
-          isShow:true
+          isShow:false,
+          goodlist:[]
       };
 	}
 
 	componentDidMount(){
+
+        store.dispatch({
+			type:'isShow',
+			payLoad:false
+        })
+        
+
         axios({
             url:`/pc/hongren/getDetailData?hongren_uid=${this.props.match.params.id}`
         }).then(res=>{
@@ -24,10 +32,21 @@ class Hotvideo extends Component{
                 datalist:res.data.data.hot_video,
                 loplist:res.data.data,
                 daylist:res.data.data.class_info,
-                brandlist:res.data.data.brand_info
+                brandlist:res.data.data.brand_info,
+               
 			})
         })
-	}
+
+        axios({
+            url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&limit=10`
+        }).then(res=>{
+            console.log(res.data.data.goods_info)
+            this.setState({
+                goodlist:res.data.data.goods_info
+            })
+        })
+    }
+    
 
 	render(){
 		return <div>
@@ -40,7 +59,7 @@ class Hotvideo extends Component{
                         this.state.datalist.map(item=>
                             <div className={ch.hotVideoItem} key={item.video_id}>
                                 <div className={ch.hotVideoItemOne}>
-                                <a className={ch.hotVideoCover} href={`/vdetail/${item.video_id}`}><img alt="" src={item.image_url} className={ch.imgclass}/></a>
+                                <a className={ch.hotVideoCover} href={`#/vdetail/${item.video_id}`}><img alt="" src={item.image_url} className={ch.imgclass}/></a>
                                 <div className={ch.hotVideoName}>{item.video_title}</div>
                                 <div>相关商品：{item.video_goods_num}</div>
                                 </div>
@@ -73,7 +92,7 @@ class Hotvideo extends Component{
                             this.state.daylist.map(ite=>
                                
                                     <li className={ch.classTypeName} key={ite.gc_id}>
-                                        <span className={ch.spanone} tabIndex={1}>{ite.gc_name}</span>
+                                        <span className={ch.spanone} onClick={this.handleclick.bind(this,ite.gc_id)} tabIndex={1}>{ite.gc_name}</span>
                                     </li>
                                 
                                 )
@@ -107,6 +126,36 @@ class Hotvideo extends Component{
                        }
                     </div>
                 </div>
+                
+                <ul className={ch.ullist}>
+                    <div className={ch.goodsItemList}>
+                        {
+                            this.state.goodlist.map(i=>
+        
+                                <div className={ch.goodsItem} key={i.goods_id}>
+                                    <div className={ch.goodsItemoo}>
+                                        <a href={`#/gdetail/${i.goods_id}`}>
+                                            <div className={ch.goodsImageBox}>
+                                                <img src={i.goods_image} alt="" className={ch.originalImage}/>
+                                            </div>
+                                            <div className={ch.goodsDesc}>{i.goods_desc}</div>
+                                            <div className={ch.goodsName}>{i.goods_name}</div>
+                                            <div className={ch.goodsPriceBox}>
+                                                <span className={ch.spangoodsPrice}>
+                                                    <b className={ch.bb}>￥</b>{i.goods_price}
+                                                </span>
+                                                <span className={ch.goodsMarketprice}>
+                                                    <b className={ch.bb}>￥</b>{i.goods_marketprice}
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    </div>
+                </ul>
+
             </div>
         </div>
      	
@@ -117,9 +166,18 @@ class Hotvideo extends Component{
             isShow:!this.state.isShow
           })
     }
-  
-    
+    handleclick(gcid){
+        console.log(gcid)
+        
+        axios({
+            url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&gc_id=[${gcid}]&brand_id=[]`
+        })
 
+        // axios({
+        //     url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&gc_id=[${gcid}]&brand_id=[${brandid}]`
+        // })
+    }
+   
 }
 
 

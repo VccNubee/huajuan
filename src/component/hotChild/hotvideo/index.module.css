@@ -1,13 +1,11 @@
 .mainBody {
   margin: 0 auto;
   width: 1200px;
-  margin-top: -150px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 .mainBody .hotSeries {
-  margin-top: 145px;
   border-radius: 10px;
   width: 100%;
   background: #fff;
@@ -157,15 +155,15 @@
   float: left;
 }
 
-.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName span:hover {
+.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName .spanone:hover {
   color: #ff527d;
 }
 
-.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName span:visited {
+.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName .spanone:visited {
   color: #ff527d;
 }
 
-.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName span:focus {
+.mainBody .allGoods .filterList .filterListone .classFilterList .classfilterListtwo .classTypeList .classTypeName .spanone:focus {
   color: #ff527d;
 }
 
@@ -254,4 +252,84 @@
   line-height: 20px;
   transition: color .3s,border-color .3s;
   margin: 0 5px;
+}
+
+.mainBody .allGoods .goodsItemList {
+  display: flex;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.mainBody .allGoods .goodsItemList .goodsItem {
+  width: 224px;
+  height: 319px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.mainBody .allGoods .goodsItemList .goodsItem .goodsItemoo {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.mainBody .allGoods .goodsItemList .goodsItem .goodsItemoo .goodsImageBox {
+  position: relative;
+  overflow: hidden;
+}
+
+.mainBody .allGoods .goodsItemList .goodsItem .goodsItemoo .goodsImageBox .originalImage {
+  vertical-align: middle;
+  border-style: none;
+  width: 100%;
+  transition: transform .3s,-webkit-transform .3s;
+}
+
+.mainBody .allGoods .goodsItemList .goodsItem .goodsItemoo .goodsDesc {
+  font-size: 14px;
+  color: #333;
+  transition: color .3s;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.mainBody .allGoods .goodsItemList .goodsItem .goodsItemoo .goodsName {
+  margin: 5px 0 0;
+  font-size: 14px;
+  color: #333;
+  transition: color .3s;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.mainBody .allGoods .goodsItemList .goodsItem .goodsItemoo .goodsPriceBox {
+  margin: 8px 0 0;
+}
+
+.mainBody .allGoods .goodsItemList .goodsItem .goodsItemoo .goodsPriceBox .spangoodsPrice {
+  font-size: 20px;
+  color: #ff527d;
+  font-weight: 600;
+}
+
+.mainBody .allGoods .goodsItemList .goodsItem .goodsItemoo .goodsPriceBox .spangoodsPrice .bb {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.mainBody .allGoods .goodsItemList .goodsItem .goodsItemoo .goodsPriceBox .goodsMarketprice {
+  font-size: 14px;
+  color: #ccc;
+  text-decoration: line-through;
+  font-weight: 100;
+  margin-left: 10px;
+}
+
+.mainBody .allGoods .goodsItemList .goodsItem:nth-child(5n) {
+  margin-right: 0;
 }
