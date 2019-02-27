@@ -27,10 +27,10 @@ class gDetail extends Component {
 														{/*面包屑导航*/}
 														<div className={styles.breadNav}>
 																<Breadcrumb separator=">">
-																		<Breadcrumb.Item href="/home">首页</Breadcrumb.Item>
+																		<Breadcrumb.Item href="#/home">首页</Breadcrumb.Item>
 																		{
 																				this.state.goodsDetail.tags.map(item =>
-																						<Breadcrumb.Item href={`/list/${item.gc_id}`} key={item.tag_id}>{item.tag_name}</Breadcrumb.Item>
+																						<Breadcrumb.Item href={`#/list/${item.gc_id}`} key={item.tag_id}>{item.tag_name}</Breadcrumb.Item>
 																				)
 																		}
 																		<Breadcrumb.Item>{this.state.goodsDetail.goodsInfo.goods_name}</Breadcrumb.Item>
@@ -116,7 +116,7 @@ class gDetail extends Component {
 																								</div>
 																								<div className={styles.other}>
 																										<div>+关注</div>
-																										<a href={`/hongren/${this.state.goodsDetail.hongren.uid}`}>进店逛逛</a>
+																										<a href={`#/hongren/${this.state.goodsDetail.hongren.uid}`}>进店逛逛</a>
 																								</div>
 																						</div>
 																		}

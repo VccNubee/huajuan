@@ -24,10 +24,10 @@ class Vdetail extends Component{
 												{/*面包屑导航*/}
 												<div className={styles.breadNav}>
 														<Breadcrumb separator=">">
-																<Breadcrumb.Item href="/home">首页</Breadcrumb.Item>
+																<Breadcrumb.Item href="#/home">首页</Breadcrumb.Item>
 																{
 																		this.state.videoDetail.tags.map(item =>
-																				<Breadcrumb.Item href={`/list/${item.gc_id}`} key={item.tag_id}>{item.tag_name}</Breadcrumb.Item>
+																				<Breadcrumb.Item href={`#/list/${item.gc_id}`} key={item.tag_id}>{item.tag_name}</Breadcrumb.Item>
 																		)
 																}
 																<Breadcrumb.Item>{this.state.videoDetail.video.video_title}</Breadcrumb.Item>
@@ -45,7 +45,7 @@ class Vdetail extends Component{
 																</div>
 																<div className={styles.hongrenInfo}>
 																		<div className={styles.lm}>
-																				<a href={`/hongren/${this.state.videoDetail.hongren_info.uid}`}>
+																				<a href={`#/hongren/${this.state.videoDetail.hongren_info.uid}`}>
 																		<div className={styles.left}>
 																				<img src={this.state.videoDetail.hongren_info.user_avatar} alt=""/>
 																				<span className={styles.user}>{this.state.videoDetail.hongren_info.user_name}</span>
@@ -59,7 +59,7 @@ class Vdetail extends Component{
 																		</div>
 																		<div className={styles.right}>
 																				<div className={styles.follow}>+关注</div>
-																				<a href={`/hongren/${this.state.videoDetail.hongren_info.uid}`}>进店逛逛></a>
+																				<a href={`#/hongren/${this.state.videoDetail.hongren_info.uid}`}>进店逛逛></a>
 																		</div>
 																</div>
 														</div>
@@ -155,6 +155,11 @@ class Vdetail extends Component{
 			console.log(nextProps);
 				getVideoDetail(nextProps.match.params.id).then(res => {
 						console.log(res);
+						if (res.code !== 200) {
+								message.error(res.info);
+								this.props.history.push('/home');
+								return
+						}
 						this.setState({
 								videoDetail: res
 						});

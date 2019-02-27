@@ -22,7 +22,7 @@ class Search extends Component{
 	}
 
 	componentDidMount() {
-			console.log(this.props.location)
+			console.log(this.props.location);
 			searchGoods("面膜",0).then(res => {
 					console.log(res)
 			})
