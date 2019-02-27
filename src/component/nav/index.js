@@ -11,37 +11,59 @@ class Nav extends Component{
         this.state={
             pList:[],
             fatherId:0,
-            childrenList:[]
+            childrenList:[],
+            isShow:true
         }
     }
     componentDidMount(){
         store.subscribe(()=>{
             console.log(store.getState().fatherId)
+            console.log(this.state.pList)
+            this.setState({
+                isShow:store.getState().isShow
+            })
             if(store.getState().fatherId){
                 var data = this.state.pList.filter((item)=>{
                     return item.gc_id===store.getState().fatherId
                 })
                 if(data.length){
-                    
                     this.setState({
                         fatherId:store.getState().fatherId
                     })
+                    
                             this.setState({
                                 childrenList:data[0].children
                             },()=>console.log(this.state.childrenList))
                         }
-                        
                     }
-            
         })
         axios('/pc/pcIndex/class').then((res)=>{
             this.setState({
                 pList:res.data.goodsClass
+            },()=>{
+                if(store.getState().fatherId){
+                    var data = this.state.pList.filter((item)=>{
+                        return item.gc_id===store.getState().fatherId
+                    })
+                    if(data.length){
+                        this.setState({
+                            fatherId:store.getState().fatherId
+                        })
+                        
+                                this.setState({
+                                    childrenList:data[0].children
+                                },()=>console.log(this.state.childrenList))
+                            }
+                        }
+    
             })
         })
     }
     render() {
      return <div id={ccc.nav}>
+     {  this.state.isShow?<div>
+        <div className={ccc.out}>
+        
         <ul className={ccc.eee}>
             {
                 this.state.pList.map(
@@ -67,16 +89,24 @@ class Nav extends Component{
             <li><NavLink to='/chargeTutoria' activeClassName={ccc.active}><i></i>化妆教学</NavLink></li>
             
         </ul>
-        <ul className={ccc.aaa}>
-             <li className={ccc.first}>品类</li>
-             <li><NavLink to={`/list/${this.state.fatherId}`} activeClassName={ccc.active}>全部</NavLink></li>
-                {
-                this.state.childrenList.map((item)=>
-                    <li key={item.gc_id}><NavLink activeClassName={ccc.active} to={`/list/${item.gc_id}`}>{item.gc_name}</NavLink></li>
-                )
-                }
-
-        </ul>
+        </div>
+        {
+            this.state.childrenList.length?
+            <ul className={ccc.aaa}>
+                <li className={ccc.first}>品类</li>
+                <li><NavLink to={`/list/${this.state.fatherId}`} activeClassName={ccc.active}>全部</NavLink></li>
+                    {
+                    this.state.childrenList.map((item)=>
+                        <li key={item.gc_id}><NavLink activeClassName={ccc.active} to={`/list/${item.gc_id}`}>{item.gc_name}</NavLink></li>
+                    )
+                    }
+    
+            </ul>
+            :null
+        }
+     </div>
+     :null
+            }
      </div>
     }
 }

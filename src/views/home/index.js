@@ -5,6 +5,7 @@ import Swipe from '../../component/swipe'
 import {Link} from 'react-router-dom'
 import Swiper from 'swiper/dist/js/swiper.js'
 import 'swiper/dist/css/swiper.min.css'
+import store from '../../store'
 class Home extends Component{
 	constructor(props) {
 	  super(props);

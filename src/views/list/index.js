@@ -16,6 +16,11 @@ class List extends Component{
 	
 	componentDidMount(){
 		store.dispatch({
+			type:'isShow',
+			payLoad:true
+		})
+
+		store.dispatch({
 			type:'fatherId',
 			payLoad:this.props.match.params.id
 		})
