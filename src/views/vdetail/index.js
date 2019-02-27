@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import styles from './index.module.scss'
 import {getVideoDetail} from "./model";
 import {Breadcrumb, message, Spin} from "antd";
+import store from "../../store";
 
 class Vdetail extends Component{
 	constructor(props) {
@@ -130,6 +131,10 @@ class Vdetail extends Component{
 				this.setState({
 						isLoading: true
 				});
+				store.dispatch({
+						type:'isShow',
+						payLoad:false
+				})
 		}
 
 		componentDidMount() {
