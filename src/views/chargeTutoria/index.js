@@ -1,12 +1,15 @@
 import React, {Component} from 'react'
 import store from "../../store";
 import styles from './index.module.scss'
+import { Modal } from "antd";
+import money from './money.png'
 
 class ChargeTutoria extends Component {
 		constructor(props) {
 				super(props);
 
 				this.state = {
+						visible: false,
 						dataList: [
 								"夏天的橙红色眼影，那些最受欢迎？",
 								"保姆到时装博主的逆袭之路是如何实现的？",
@@ -37,12 +40,29 @@ class ChargeTutoria extends Component {
 												}
 										</ul>
 								</div>
+								<Modal
+										title="扫描下方二维码，付费20元即可查看"
+										visible={this.state.visible}
+										footer={null}
+										width="320px"
+										closable={false}
+										className={styles.modal}
+										onCancel={()=> {
+												this.setState({
+														visible: false
+												})
+										}}
+								>
+										<img src={money} width="100%" alt=""/>
+								</Modal>
 						</div>
 				)
 		}
 
 		handleClick() {
-
+				this.setState({
+						visible: true
+				})
 		}
 
 		componentDidMount() {
