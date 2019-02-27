@@ -11,8 +11,11 @@ class Hotvideo extends Component{
           loplist:[],
           daylist:[],
           brandlist:[],
+          goodlist:[],
           isShow:false,
-          goodlist:[]
+          isShowt:true,
+          
+          isGcid:null
       };
 	}
 
@@ -52,31 +55,41 @@ class Hotvideo extends Component{
 		return <div>
 
         <div className={ch.mainBody}>
-            <div className={ch.hotSeries}>
-                <h3 className={ch.hotSeriesTitle}>热门视频</h3>
-                <div className={ch.hotVideoList}>
-                    {
-                        this.state.datalist.map(item=>
-                            <div className={ch.hotVideoItem} key={item.video_id}>
-                                <div className={ch.hotVideoItemOne}>
-                                <a className={ch.hotVideoCover} href={`#/vdetail/${item.video_id}`}><img alt="" src={item.image_url} className={ch.imgclass}/></a>
-                                <div className={ch.hotVideoName}>{item.video_title}</div>
-                                <div>相关商品：{item.video_goods_num}</div>
-                                </div>
-                            </div>
-                            )
-                    }
+            {
+                this.state.isShowt?
+                <div>
+                    <div className={ch.hotSeries}>
+                        <h3 className={ch.hotSeriesTitle}>热门视频</h3>
+                        <div className={ch.hotVideoList}>
+                            {
+                                this.state.datalist.map(item=>
+                                    <div className={ch.hotVideoItem} key={item.video_id}>
+                                        <div className={ch.hotVideoItemOne}>
+                                        <a className={ch.hotVideoCover} href={`#/vdetail/${item.video_id}`}><img alt="" src={item.image_url} className={ch.imgclass}/></a>
+                                        <div className={ch.hotVideoName}>{item.video_title}</div>
+                                        <div>相关商品：{item.video_goods_num}</div>
+                                        </div>
+                                    </div>
+                                    )
+                            }
+                        </div>
+                    </div>
                 </div>
-            </div>
+                :null
+            }
             
             {/* 轮播· */}
-            <div className={ch.hotSeriesTwo}>
-                <h3 className={ch.hotSeriesTitle}>热卖宝贝</h3>
-                <div className={ch.hotGoodsList}>
-                
-                </div>
-            </div>
 
+            {
+                this.state.isShowt?
+                <div className={ch.hotSeriesTwo}>
+                    <h3 className={ch.hotSeriesTitle}>热卖宝贝</h3>
+                    <div className={ch.hotGoodsList}>
+                    
+                    </div>
+                </div>
+                :null
+            }
 
 
             <div className={ch.allGoods}>
@@ -168,9 +181,11 @@ class Hotvideo extends Component{
     }
     handleclick(gcid){
         console.log(gcid)
-        
+        this.setState(
+            this.state.isGcid = gcid
+        )
         axios({
-            url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&gc_id=[${gcid}]&brand_id=[]`
+            url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&gc_id=[]&brand_id=[]`
         })
 
         // axios({
