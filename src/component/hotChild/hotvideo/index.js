@@ -13,7 +13,6 @@ class Hotvideo extends Component{
           brandlist:[],
           goodlist:[],
           isShow:false,
-          isShowt:true,
           
           isGcid:null
       };
@@ -56,7 +55,7 @@ class Hotvideo extends Component{
 
         <div className={ch.mainBody}>
             {
-                this.state.isShowt?
+                this.state.datalist.length?
                 <div>
                     <div className={ch.hotSeries}>
                         <h3 className={ch.hotSeriesTitle}>热门视频</h3>
@@ -80,16 +79,16 @@ class Hotvideo extends Component{
             
             {/* 轮播· */}
 
-            {
-                this.state.isShowt?
-                <div className={ch.hotSeriesTwo}>
+           
+               
+                {/* <div className={ch.hotSeriesTwo}>
                     <h3 className={ch.hotSeriesTitle}>热卖宝贝</h3>
                     <div className={ch.hotGoodsList}>
                     
                     </div>
-                </div>
-                :null
-            }
+                </div> */}
+            
+          
 
 
             <div className={ch.allGoods}>
@@ -115,7 +114,7 @@ class Hotvideo extends Component{
                             </div>
                         </div>
                        
-                       {
+                       
                         
                         <div className={ch.brandFilterListo}>
                             <div className={ch.brandFilterList} style= {this.state.isShow?{ height:"250px"}:{}} >
@@ -136,7 +135,6 @@ class Hotvideo extends Component{
                             </div>
                         </div>
                         
-                       }
                     </div>
                 </div>
                 
@@ -181,9 +179,7 @@ class Hotvideo extends Component{
     }
     handleclick(gcid){
         console.log(gcid)
-        this.setState(
-            this.state.isGcid = gcid
-        )
+       
         axios({
             url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&gc_id=[]&brand_id=[]`
         })

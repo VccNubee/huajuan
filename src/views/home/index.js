@@ -33,7 +33,6 @@ class Home extends Component{
 				zzList:res.data.ad.PCHotTopic,
 				bannerList:res.data.ad.pc_hongren_rec
 			})
-			console.log(this.state.bannerList)
 			new Swiper('.swiper-ccc', {
 				slidesPerView: 5,
 				spaceBetween: 30,

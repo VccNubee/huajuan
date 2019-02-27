@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import ccc from './index.module.scss'
 import axios from 'axios'
-import {NavLink,Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import store from '../../store'
 class List extends Component{
 	constructor(props) {
@@ -73,7 +73,6 @@ class List extends Component{
 					type:'fatherId',
 					payLoad:nextprops.match.params.id
 				})
-				console.log(nextprops.match.params.id,"dispatch")
 		// axios('/pc/pcIndex/class').then((res)=>{
 		// 	this.setState({
 		// 		aList:res.data.goodsClass

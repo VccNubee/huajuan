@@ -19,8 +19,7 @@ class Swipe extends Component{
             this.setState({
                 videoSwipe:res.data.ad.pc_index_carousel
             })
-			console.log(this.state.videoSwipe)
-            var myswiper = new Swiper('.swiper-container', {
+            new Swiper('.swiper-container', {
                 slidesPerView: 1,
                 spaceBetween: 0,
                 loop: true,
