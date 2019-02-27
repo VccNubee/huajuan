@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { getGoodsDetail } from "./model";
 import styles from './index.module.scss'
 import { Breadcrumb, message, Spin } from 'antd';
+import store from '../../store'
 
 message.config({
 		top: 160
@@ -145,6 +146,10 @@ class gDetail extends Component {
 				this.setState({
 						isLoading: true
 				});
+				store.dispatch({
+						type:'isShow',
+						payLoad:false
+				})
 		}
 
 		componentDidMount() {

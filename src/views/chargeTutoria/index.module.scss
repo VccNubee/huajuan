@@ -1,0 +1,22 @@
+.ChargeTutoria {
+	padding: 50px 0;
+	.layer {
+		width: 1200px;
+		margin: 0 auto;
+		ul {
+			li {
+				color: #999;
+				font-size: 16px;
+				line-height: 34px;
+				span {
+					transition: all .4s;
+				}
+				span:hover {
+					color: #ff527d;
+					cursor: pointer;
+				}
+			}
+
+		}
+	}
+}
