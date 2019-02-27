@@ -90,20 +90,20 @@ class Nav extends Component{
             
         </ul>
         </div>
-        {
-            this.state.childrenList.length?
-            <ul className={ccc.aaa}>
-                <li className={ccc.first}>品类</li>
-                <li><NavLink to={`/list/${this.state.fatherId}`} activeClassName={ccc.active}>全部</NavLink></li>
-                    {
-                    this.state.childrenList.map((item)=>
-                        <li key={item.gc_id}><NavLink activeClassName={ccc.active} to={`/list/${item.gc_id}`}>{item.gc_name}</NavLink></li>
-                    )
-                    }
-    
-            </ul>
-            :null
-        }
+            {
+                this.state.childrenList.length?
+                <ul className={ccc.aaa}>
+                    <li className={ccc.first}>品类</li>
+                    <li><NavLink to={`/list/${this.state.fatherId}`} activeClassName={ccc.active}>全部</NavLink></li>
+                        {
+                        this.state.childrenList.map((item)=>
+                            <li key={item.gc_id}><NavLink activeClassName={ccc.active} to={`/list/${item.gc_id}`}>{item.gc_name}</NavLink></li>
+                        )
+                        }
+        
+                </ul>
+                :null
+            }
      </div>
      :null
             }

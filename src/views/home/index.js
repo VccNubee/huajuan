@@ -18,6 +18,15 @@ class Home extends Component{
 	}
 
 	componentDidMount(){
+		store.dispatch({
+			type:'fatherId',
+			payLoad:0
+		})
+		store.dispatch({
+			type:'isShow',
+			payLoad:true
+		})
+
 		// console.log(this.props.location.state.myid)
 		axios('/pc/pcIndex/recHot').then((res)=>{
             this.setState({
