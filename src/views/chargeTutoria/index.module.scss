@@ -1,5 +1,6 @@
 .ChargeTutoria {
 	padding: 50px 0;
+
 	.layer {
 		width: 1200px;
 		margin: 0 auto;
@@ -18,5 +19,11 @@
 			}
 
 		}
+	}
+}
+
+.modal {
+	:global(.ant-modal-header) {
+		border-bottom: 1.5px solid #ff527d;
 	}
 }
