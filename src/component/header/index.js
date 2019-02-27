@@ -26,7 +26,7 @@ class Header extends Component{
             </div>
         </div>
         <div className={ccc.bottom}>
-            <Link to='/home'><img src={logo} alt="" height='68px'/></Link>
+            <Link to='/home' replace><img src={logo} alt="" height='68px'/></Link>
             <div className={ccc.cart}>
                 <span className="iconfont icon-gouwuche"></span>
                 我的购物车
