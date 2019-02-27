@@ -45,12 +45,11 @@ class ChargeTutoria extends Component {
 
 		}
 
-		componentWillMount() {
+		componentDidMount() {
 				store.dispatch({
 						type: 'isShow',
 						payLoad: false
 				})
-
 		}
 }
 

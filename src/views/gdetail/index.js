@@ -146,13 +146,13 @@ class gDetail extends Component {
 				this.setState({
 						isLoading: true
 				});
-				store.dispatch({
-						type:'isShow',
-						payLoad:false
-				})
 		}
 
 		componentDidMount() {
+				store.dispatch({
+						type:'isShow',
+						payLoad:false
+				});
 				getGoodsDetail(this.props.match.params.id).then(res => {
 						console.log(res);
 						//没有这个商品 -404

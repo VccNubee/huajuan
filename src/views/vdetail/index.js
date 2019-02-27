@@ -131,13 +131,13 @@ class Vdetail extends Component{
 				this.setState({
 						isLoading: true
 				});
-				store.dispatch({
-						type:'isShow',
-						payLoad:false
-				})
 		}
 
 		componentDidMount() {
+				store.dispatch({
+						type:'isShow',
+						payLoad:false
+				});
 				getVideoDetail(this.props.match.params.id).then(res => {
 						console.log(res);
 						if (res.code !== 200) {
