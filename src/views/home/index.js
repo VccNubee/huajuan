@@ -105,7 +105,7 @@ class Home extends Component{
 				</div>
 			</div>
 			<div className={ccc.mid}>
-				<p className={ccc.topp}>人气红人<Link to='/hot/list'>查看更多</Link></p>
+				<p className={ccc.topp}>人气红人<Link to='/hongrenlist'>查看更多</Link></p>
 				<div className="swiper-ccc" key={this.state.bannerList.length}>
 					<div className="swiper-wrapper">
 						{
