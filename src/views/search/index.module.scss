@@ -40,12 +40,26 @@
 
 				.hongrenItem {
 					margin-right: 22px;
+					margin-bottom: 22px;
 					cursor: pointer;
-
+					position: relative;
 					img {
 						width: 283px;
 						height: 326px;
 						border-radius: 10px;
+					}
+					.fansBox {
+						position: absolute;
+						background: #fff;
+						color: #666;
+						right: 10px;
+						bottom: 10px;
+						padding: 1px 5px 2px;
+						border-radius: 10px;
+						font-size: 12px;
+						.fans {
+							color: #ff527d;
+						}
 					}
 				}
 				.hongrenItem:nth-child(4n) {
@@ -60,6 +74,7 @@
 				display: flex;
 				flex-wrap: wrap;
 				align-items: center;
+				margin-top: 40px;
 				.goodsItem {
 					margin-right: 20px;
 					margin-bottom: 20px;

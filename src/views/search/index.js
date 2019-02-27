@@ -10,7 +10,9 @@ class Search extends Component {
 				this.state = {
 						searchValue: '',
 						goodsData: [],
-						hongrenData: []
+						hongrenData: [],
+						offset: 0,
+						allCount:0
 				};
 		}
 
@@ -28,6 +30,7 @@ class Search extends Component {
 																						this.state.hongrenData.map(item =>
 																								<div className={styles.hongrenItem} key={item.uid} onClick={this.toHongren.bind(this,item.uid)}>
 																										<img src={item.share_image} alt=""/>
+																										<span className={styles.fansBox}>粉丝：<span className={styles.fans}>{item.fcount}</span></span>
 																								</div>
 																						)
 																				}
@@ -88,6 +91,40 @@ class Search extends Component {
 				this.props.history.push(`/gdetail/${id}`)
 		}
 
+		handleScroll() {
+				let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				console.log(scrollTop);
+				let hei = document.documentElement.clientHeight || document.body.clientHeight;
+				let scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+				if(scrollTop + hei >= scrollHeight-300) {
+						console.log("到达底部");
+						this.setState({
+								offset: this.state.offset + 10
+						});
+						if(this.state.goodsData.length === this.state.allCount) {
+								window.onscroll = null;
+								return
+						}
+						searchGoods(this.state.searchValue, this.state.offset).then(res => {
+								this.setState({
+										goodsData: [...this.state.goodsData, ...res.goods_infos],
+								})
+						});
+				}
+		}
+
+		//节流函数
+		throttle(method,delay){
+				var timer = null;
+				return function(){
+						var context = this, args=arguments;
+						clearTimeout(timer);
+						timer=setTimeout(function(){
+								method.apply(context,args);
+						},delay);
+				}
+		}
+
 		componentWillReceiveProps(nextProps, nextContext) {
 				console.log(nextProps);
 				let searchValue = nextProps.location.search.slice(4);
@@ -97,7 +134,8 @@ class Search extends Component {
 				});
 				searchGoods(searchValue, 0).then(res => {
 						this.setState({
-								goodsData: res.goods_infos
+								goodsData: res.goods_infos,
+								allCount: res.allCount
 						})
 				});
 				searchHongren(searchValue, 0).then(res => {
@@ -107,11 +145,16 @@ class Search extends Component {
 				})
 		}
 
+		componentWillUpdate(nextProps, nextState, nextContext) {
+
+		}
+
 		componentDidMount() {
 				store.dispatch({
 						type: 'isShow',
 						payLoad: false
 				});
+				document.documentElement.scrollTop = document.body.scrollTop = 0;
 				console.log(this.props.location);
 				let searchValue = this.props.location.search.slice(4);
 				// console.log();
@@ -120,14 +163,21 @@ class Search extends Component {
 				});
 				searchGoods(searchValue, 0).then(res => {
 						this.setState({
-								goodsData: res.goods_infos
+								goodsData: res.goods_infos,
+								allCount: res.allCount
 						})
 				});
 				searchHongren(searchValue, 0).then(res => {
 						this.setState({
 								hongrenData: res.hongren_infos
 						})
-				})
+				});
+
+				window.onscroll = this.throttle(this.handleScroll.bind(this),200)
+		}
+
+		componentWillUnmount() {
+				window.onscroll = null
 		}
 
 }
