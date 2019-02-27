@@ -1,6 +1,6 @@
 import React from 'react';
 import App from '../App';
-import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import {HashRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import Home from '../views/home'
 import List from '../views/list'
 import Gdetail from '../views/gdetail'

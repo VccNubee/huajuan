@@ -6,7 +6,10 @@ class Search extends Component{
 	constructor(props) {
 	  super(props);
 
-	  this.state = {};
+	  this.state = {
+	  		goodsData: [],
+				hongrenData: []
+		};
 	}
 
 
@@ -20,6 +23,9 @@ class Search extends Component{
 
 	componentDidMount() {
 			console.log(this.props.location)
+			searchGoods("面膜",0).then(res => {
+					console.log(res)
+			})
 	}
 
 }
