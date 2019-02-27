@@ -83,7 +83,12 @@ class gDetail extends Component {
 																							<span>{this.state.count}</span>
 																							<span className={styles.btn} onClick={this.handleSum.bind(this)}>+</span>
 																					</div>
-																					<button>加入购物车</button>
+																					{
+																							this.state.goodsDetail.goodsInfo.goods_stock === '0'?
+																									<button className={styles.disabled} disabled>已售罄</button>
+																							:<button className={styles.normal} onClick={this.toShopCar.bind(this)}>加入购物车</button>
+																					}
+
 																					<div className={styles.collect}>
 																							<span className="iconfont icon-xin"/>
 																							<span className={styles.text}>收藏</span>
@@ -187,6 +192,10 @@ class gDetail extends Component {
 								count: 1
 						})
 				}
+		}
+
+		toShopCar() {
+				this.props.history.push('/shopcar')
 		}
 
 		changeVideo(index) {

@@ -195,11 +195,17 @@
 						cursor: pointer;
 						transition: all .4s;
 					}
-
-					button:hover {
+					.disabled {
+						background: #eee;
+						color: #999;
+						border: none;
+						cursor: not-allowed;
+					}
+					.normal:hover {
 						background: #ff527d;
 						color: #fff;
 					}
+
 				}
 
 				.collect {
