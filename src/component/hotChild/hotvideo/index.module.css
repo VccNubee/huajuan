@@ -55,6 +55,41 @@
   width: 220px;
 }
 
+.mainBody .hotSeries .hotVideoList .hotVideoItem .hotVideoItemOne .hotVideoCover .hotVideoTime {
+  width: 80px;
+  height: 30px;
+  position: absolute;
+  border-radius: 15px;
+  background: rgba(51, 51, 51, 0.6);
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainBody .hotSeries .hotVideoList .hotVideoItem .hotVideoItemOne .hotVideoCover .hotVideoTime .qwe {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+
+.mainBody .hotSeries .hotVideoList .hotVideoItem .hotVideoItemOne .hotVideoCover .hotVideoTime .qwe span {
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 13px;
+}
+
+.mainBody .hotSeries .hotVideoList .hotVideoItem .hotVideoItemOne .hotVideoCover .hotVideoTime .spanTime {
+  font-size: 14px;
+  color: #fff;
+  padding-left: 5px;
+}
+
 .mainBody .hotSeries .hotVideoList .hotVideoItem .hotVideoItemOne .hotVideoName {
   font-size: 14px;
   color: #333;

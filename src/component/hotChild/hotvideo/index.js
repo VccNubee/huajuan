@@ -13,7 +13,7 @@ class Hotvideo extends Component{
           brandlist:[],
           goodlist:[],
           isShow:false,
-          
+          isBian:true,
           isGcid:null
       };
 	}
@@ -64,7 +64,18 @@ class Hotvideo extends Component{
                                 this.state.datalist.map(item=>
                                     <div className={ch.hotVideoItem} key={item.video_id}>
                                         <div className={ch.hotVideoItemOne}>
-                                        <a className={ch.hotVideoCover} href={`#/vdetail/${item.video_id}`}><img alt="" src={item.image_url} className={ch.imgclass}/></a>
+                                        <a className={ch.hotVideoCover} href={`#/vdetail/${item.video_id}`}>
+                                            <img alt="" src={item.image_url} className={ch.imgclass}/>
+                                            <div className={ch.hotVideoTime}>
+                                                <div className={ch.qwe}>
+                                                    <span className=" iconfont icon-shipin"></span>
+                                                </div>
+                                                <span className={ch.spanTime}>
+                                                    {Math.floor(item.video_length_sec/60)}:{(item.video_length_sec%60)<10?"0"+(item.video_length_sec%60):(item.video_length_sec%60)}
+                                                </span>
+
+                                            </div>
+                                            </a>
                                         <div className={ch.hotVideoName}>{item.video_title}</div>
                                         <div>相关商品：{item.video_goods_num}</div>
                                         </div>
@@ -118,7 +129,7 @@ class Hotvideo extends Component{
                         
                         <div className={ch.brandFilterListo}>
                             <div className={ch.brandFilterList} style= {this.state.isShow?{ height:"250px"}:{}} >
-                                <div className={ch.extendAll} onClick={this.zhankai.bind(this)}>展开全部</div>
+                                <div className={ch.extendAll} onClick={this.zhankai.bind(this)}>{this.state.isBian?"展开全部":"收起全部"}</div>
                                 <span className={ch.brandTitle}>品牌</span>
                                 <div className={ch.brandTypeList}>
                                     <ul className={ch.brandTypeUl}>
@@ -174,7 +185,8 @@ class Hotvideo extends Component{
     }
     zhankai(){
         this.setState({
-            isShow:!this.state.isShow
+            isShow:!this.state.isShow,
+            isBian:!this.state.isBian
           })
     }
     handleclick(gcid){
