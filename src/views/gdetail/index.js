@@ -86,7 +86,7 @@ class gDetail extends Component {
 																					{
 																							this.state.goodsDetail.goodsInfo.goods_stock === '0'?
 																									<button className={styles.disabled} disabled>已售罄</button>
-																							:<button className={styles.normal} onClick={this.toLogin.bind(this)}>加入购物车</button>
+																							:<button className={styles.normal} onClick={this.toShopCar.bind(this)}>加入购物车</button>
 																					}
 
 																					<div className={styles.collect}>
@@ -198,6 +198,11 @@ class gDetail extends Component {
 				console.log(this);
 				let redirect = decodeURI(this.props.location.pathname);
 				this.props.history.push(`/login?redirect=${redirect}`)
+		}
+
+		toShopCar() {
+				this.props.history.push('/login');
+				message.warning('购物车模块正在努力开发中...');
 		}
 
 		changeVideo(index) {

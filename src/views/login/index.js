@@ -66,7 +66,7 @@ class Login extends Component{
 				}).then(res => {
 						console.log(res.data);
 						if(res.data.ret === "success") {
-								let redirect = (this.props.location.search).slice(10)
+								let redirect = (this.props.location.search).slice(10);
 								this.props.history.push(redirect)
 						} else {
 								this.setState({
@@ -80,13 +80,14 @@ class Login extends Component{
 				axios.get("/api/checkLogin").then(res => {
 						console.log(res.data);
 						if(res.data.ret === 1) {
-								this.props.history.push('/')
+								let redirect = (this.props.location.search).slice(10)
+								this.props.history.push(redirect)
 						}
 				});
 				notification["info"]({
 						message: '测试号',
 						description: '手机：15800000000；密码：test',
-						duration: null,
+						duration: 10,
 						style: {
 								height:100,
 								width: 600,
