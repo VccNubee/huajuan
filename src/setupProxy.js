@@ -8,6 +8,10 @@ module.exports = function(app) {
   app.use(proxy('/search', {
   		target: 'https://www.huajuanmall.com',
 			changeOrigin: true
-	}))
+	}));
+		app.use(proxy('/api', {
+				target: 'http://vizz.top:3000',
+				changeOrigin: true
+		}));
 
 };

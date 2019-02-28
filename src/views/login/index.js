@@ -28,7 +28,7 @@ class Login extends Component{
 																		</header>
 																		<main>
 																				<p>您的手机号将被默认作为花卷app账号使用</p>
-																				<form action="">
+																				<form action="/api/login" method="post">
 																						<input type="tel" placeholder="请输入手机号" name="mobile"/>
 																						<input type="password" placeholder="请输入密码" name="password"/>
 																						<button type="submit">登录</button>
