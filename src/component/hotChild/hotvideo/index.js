@@ -1,7 +1,34 @@
 import React,{Component} from 'react'
+// import ReactDOM from 'react-dom'
 import axios from 'axios'
 import ch from './index.module.scss'
 import store from '../../../store'
+// import LazyLoad from 'react-lazyload'
+// import MyComponent from './MyComponent'
+
+// const App = () => {
+//     return (
+//       <div className="list">
+//         <LazyLoad height={200}>
+//           <img src="tiger.jpg" /> 
+//         </LazyLoad>
+//         <LazyLoad height={200} once >
+                                 
+//           <MyComponent />
+//         </LazyLoad>
+//         <LazyLoad height={200} offset={100}>
+                               
+//           <MyComponent />
+//         </LazyLoad>
+//         <LazyLoad>
+//           <MyComponent />
+//         </LazyLoad>
+//       </div>
+//     );
+//   };
+  
+//   ReactDOM.render(<App />, document.body);
+
 class Hotvideo extends Component{
 	constructor(props) {
 	  super(props);
@@ -199,7 +226,12 @@ class Hotvideo extends Component{
         // axios({
         //     url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&gc_id=[${gcid}]&brand_id=[${brandid}]`
         // })
+        
     }
+
+
+    
+
    
 }
 
