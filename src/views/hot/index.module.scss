@@ -1,10 +1,15 @@
+
+.taxian{
+overflow: hidden;
+padding-bottom: 50px;
+
 .fff{
     width: 100%;
     float: left;
 .headBg {
     width: 100%;
     height: 360px;
-    background: #ff527d url(./img/headBg.128f6d63.png) 50% no-repeat;
+    background:url(./img/headBg.128f6d63.png);
 
 .hongrenHeadBackground{
     width: 1200px;
@@ -114,5 +119,6 @@
     }
 }
 
+}
 }
 }

@@ -25,7 +25,7 @@ class Hot extends Component{
 	}
 
 	render(){
-		return <div>
+		return <div className={ch.taxian}>
 			<link rel="stylesheet" href="./iconfont.css"></link>
 			<div className={ch.fff}>
 			<div className={ch.headBg}>
@@ -59,9 +59,10 @@ class Hot extends Component{
 				:null
 				
 			}
-			<Hotvideo {...this.props}/>
+			
 			
 			</div>
+			<Hotvideo {...this.props}/>
 			</div>
 
 		</div>

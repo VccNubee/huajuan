@@ -1,15 +1,20 @@
-.fff {
+.taxian {
+  overflow: hidden;
+  padding-bottom: 50px;
+}
+
+.taxian .fff {
   width: 100%;
   float: left;
 }
 
-.fff .headBg {
+.taxian .fff .headBg {
   width: 100%;
   height: 360px;
-  background: #ff527d url(./img/headBg.128f6d63.png) 50% no-repeat;
+  background: url(./img/headBg.128f6d63.png);
 }
 
-.fff .headBg .hongrenHeadBackground {
+.taxian .fff .headBg .hongrenHeadBackground {
   width: 1200px;
   height: 195px;
   margin: 0 auto;
@@ -19,7 +24,7 @@
   overflow: hidden;
 }
 
-.fff .headBg .hongrenHeadBackground .hongrenAvatar {
+.taxian .fff .headBg .hongrenHeadBackground .hongrenAvatar {
   width: 135px;
   height: 135px;
   box-sizing: border-box;
@@ -31,24 +36,24 @@
   display: block;
 }
 
-.fff .headBg .hongrenHeadBackground .hongrenAvatar .userimg {
+.taxian .fff .headBg .hongrenHeadBackground .hongrenAvatar .userimg {
   vertical-align: middle;
   border-style: none;
   width: 125px;
 }
 
-.fff .headBg .hongrenHeadBackground .hongrenInfo {
+.taxian .fff .headBg .hongrenHeadBackground .hongrenInfo {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItem {
+.taxian .fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItem {
   width: 255px;
   height: 48px;
 }
 
-.fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItem .hongrenname {
+.taxian .fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItem .hongrenname {
   color: #fff;
   font-size: 26px;
   line-height: 48px;
@@ -61,7 +66,7 @@
   float: left;
 }
 
-.fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItem .hongrenAttention {
+.taxian .fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItem .hongrenAttention {
   width: 70px;
   height: 25px;
   border-radius: 30px;
@@ -78,7 +83,7 @@
   margin-top: 12px;
 }
 
-.fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItem .hongrenAttention .hongrenguanzhu {
+.taxian .fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItem .hongrenAttention .hongrenguanzhu {
   font-family: huajuan !important;
   speak: none;
   font-style: normal;
@@ -89,12 +94,12 @@
   float: left;
 }
 
-.fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItemtwo {
+.taxian .fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItemtwo {
   width: 300px;
   height: 25px;
 }
 
-.fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItemtwo .hongrenStore {
+.taxian .fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItemtwo .hongrenStore {
   font-size: 12px;
   color: #fff;
   margin-right: 20px;
@@ -106,7 +111,7 @@
   float: left;
 }
 
-.fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItemtwo .fansnum {
+.taxian .fff .headBg .hongrenHeadBackground .hongrenInfo .hongrenItemtwo .fansnum {
   font-size: 12px;
   color: #fff;
   margin-right: 20px;
