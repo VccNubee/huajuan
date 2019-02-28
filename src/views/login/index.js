@@ -82,18 +82,20 @@ class Login extends Component{
 						if(res.data.ret === 1) {
 								let redirect = (this.props.location.search).slice(10)
 								this.props.history.push(redirect)
+								return
 						}
+						notification["info"]({
+								message: '测试号',
+								description: '手机：15800000000；密码：test',
+								duration: 0,
+								style: {
+										height:100,
+										width: 600,
+										marginLeft: 335 - 600,
+								},
+						});
 				});
-				notification["info"]({
-						message: '测试号',
-						description: '手机：15800000000；密码：test',
-						duration: 10,
-						style: {
-								height:100,
-								width: 600,
-								marginLeft: 335 - 600,
-						},
-				});
+
 				store.dispatch({
 						type: 'isShow',
 						payLoad: false
@@ -104,6 +106,10 @@ class Login extends Component{
 								loginRec: res.ad
 						})
 				})
+		}
+
+		componentWillUnmount() {
+				notification.destroy()
 		}
 
 }
