@@ -43,12 +43,26 @@
 
 				}
 				main {
+					padding: 0 30px;
 					p {
 						height: 50px;
 						line-height: 50px;
 						font-size: 14px;
 						color: #999;
 						text-align: center;
+					}
+					form {
+						input {
+							width: 100%;
+							border: none;
+							height: 40px;
+							line-height: 40px;
+							padding: 0 24px;
+							border-radius: 20px;
+							color: #333;
+							background: #eee;
+							margin-bottom: 30px;
+						}
 					}
 				}
 			}

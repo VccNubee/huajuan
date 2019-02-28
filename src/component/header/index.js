@@ -20,7 +20,7 @@ class Header extends Component{
                 <ul>
                 <li className={ccc.l4}><img src="http://static.huajuanmall.com/subject/o_1d1su43d25utq1s1s0re8l95jm.png" alt="" height="18px"/><a href="https://www.huajuanmall.com/#/miniDraw">重赏福利小程序</a></li>
                 <li className={ccc.l3}><a href="https://m.huajuanmall.com/">花卷app下载</a></li>
-                <li className={ccc.l2}><a href="#/login">登陆</a></li>
+                <li className={ccc.l2}><a href="#/login">登录</a></li>
                 <li className={ccc.l1}>Hi！花卷商城欢迎你~</li>
                 </ul>
             </div>

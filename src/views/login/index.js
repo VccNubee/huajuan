@@ -28,12 +28,11 @@ class Login extends Component{
 																		</header>
 																		<main>
 																				<p>您的手机号将被默认作为花卷app账号使用</p>
-																				<div className="l-captcha"
-																						 data-site-key="83c2acd5607e012a23a77273a2bb963f"/>
 																				<form action="">
-
+																						<input type="tel" placeholder="请输入手机号" name="mobile"/>
+																						<input type="password" placeholder="请输入密码" name="password"/>
+																						<button type="submit">登录</button>
 																				</form>
-
 																		</main>
 																</div>
 														</div>
