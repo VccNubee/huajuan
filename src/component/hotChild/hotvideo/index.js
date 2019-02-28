@@ -1,33 +1,8 @@
 import React,{Component} from 'react'
-// import ReactDOM from 'react-dom'
 import axios from 'axios'
 import ch from './index.module.scss'
 import store from '../../../store'
-// import LazyLoad from 'react-lazyload'
-// import MyComponent from './MyComponent'
-
-// const App = () => {
-//     return (
-//       <div className="list">
-//         <LazyLoad height={200}>
-//           <img src="tiger.jpg" /> 
-//         </LazyLoad>
-//         <LazyLoad height={200} once >
-                                 
-//           <MyComponent />
-//         </LazyLoad>
-//         <LazyLoad height={200} offset={100}>
-                               
-//           <MyComponent />
-//         </LazyLoad>
-//         <LazyLoad>
-//           <MyComponent />
-//         </LazyLoad>
-//       </div>
-//     );
-//   };
-  
-//   ReactDOM.render(<App />, document.body);
+// import Lazy from '../lazy'
 
 class Hotvideo extends Component{
 	constructor(props) {
@@ -41,11 +16,16 @@ class Hotvideo extends Component{
           goodlist:[],
           isShow:false,
           isBian:true,
-          isGcid:null
+          gcId:0,
+          brandId:0,
+          isCunzai:true
+        
       };
 	}
 
 	componentDidMount(){
+
+        
 
         store.dispatch({
 			type:'isShow',
@@ -79,7 +59,6 @@ class Hotvideo extends Component{
 
 	render(){
 		return <div>
-
         <div className={ch.mainBody}>
             {
                 this.state.datalist.length?
@@ -163,7 +142,7 @@ class Hotvideo extends Component{
                                         <li className={ch.brandTypeName}><span className={ch.spanttt} tabIndex={1}>全部</span></li>
                                         {
                                             this.state.brandlist.map(it=>
-                                                <li className={ch.brandTypeName} key={it.brand_id} >
+                                                <li className={ch.brandTypeName}  onClick={this.handleclickTwo.bind(this,it.brand_id)} key={it.brand_id} >
                                                     <span className={ch.spanttt} tabIndex={1}>{it.brand_name}</span>
                                                 </li>
                                                 )
@@ -199,10 +178,14 @@ class Hotvideo extends Component{
                                             </div>
                                         </a>
                                     </div>
+                                    
                                 </div>
+                                
                             )
                         }
+                       
                     </div>
+                    
                 </ul>
 
             </div>
@@ -216,23 +199,46 @@ class Hotvideo extends Component{
             isBian:!this.state.isBian
           })
     }
-    handleclick(gcid){
-        console.log(gcid)
-       
-        axios({
-            url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&gc_id=[]&brand_id=[]`
+    handleclick(a){
+        console.log("111111111111111111111")
+        this.setState=({
+            gcId:a
+        },()=>{
+            axios({
+                url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&gc_id=[${this.state.gcId}]&brand_id=[${this.state.brandId}]`
+            }).then(res=>{
+                this.setState({
+                    goodlist:res.data.data.goods_info
+                })
+            })
         })
+       
 
-        // axios({
-        //     url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&gc_id=[${gcid}]&brand_id=[${brandid}]`
-        // })
         
     }
 
+    handleclickTwo(b){
+        // console.log(gcid)
+        this.setState=({
+            brandId:b
+        },
+        ()=>{
+            axios({
+                url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&gc_id=[${this.state.gcId}]&brand_id=[${this.state.brandId}]`
+            }).then(res=>{
+                this.setState({
+                    goodlist:res.data.data.goods_info
+                })
+            })
+        }
+        )
+       
+        
+
+        
+    }
 
     
-
-   
 }
 
 
