@@ -3,6 +3,7 @@
   width: 1200px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  margin-top: -150px;
 }
 
 .mainBody .hotSeries {
@@ -320,7 +321,11 @@
   vertical-align: middle;
   border-style: none;
   width: 100%;
-  transition: transform .3s,-webkit-transform .3s;
+  transition: transform .4s,-webkit-transform .3s;
+}
+
+.mainBody .allGoods .goodsItemList .goodsItem .goodsItemoo .goodsImageBox .originalImage:hover {
+  transform: scale(1.15);
 }
 
 .mainBody .allGoods .goodsItemList .goodsItem .goodsItemoo .goodsDesc {

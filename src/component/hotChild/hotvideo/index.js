@@ -17,8 +17,8 @@ class Hotvideo extends Component{
           isShow:false,
           isBian:true,
           gcId:0,
-          brandId:0,
-          isCunzai:true
+          brandId:0
+         
         
       };
 	}
@@ -116,12 +116,12 @@ class Hotvideo extends Component{
                             <div className={ch.classfilterListtwo}>
                             <span className={ch.classTitle}>品类</span>
                             <ul className={ch.classTypeList}>
-                            <li className={ch.classTypeName}><span className={ch.spanone} tabIndex={1}>全部</span></li>
+                            <li className={ch.classTypeName} onClick={this.quanBu.bind(this)}><span className={ch.spanone} tabIndex={1}>全部</span></li>
                         {
                             this.state.daylist.map(ite=>
                                
-                                    <li className={ch.classTypeName} key={ite.gc_id}>
-                                        <span className={ch.spanone} onClick={this.handleclick.bind(this,ite.gc_id)} tabIndex={1}>{ite.gc_name}</span>
+                                    <li className={ch.classTypeName} onClick={this.handleclick.bind(this,ite.gc_id)} key={ite.gc_id}>
+                                        <span className={ch.spanone}  tabIndex={1}>{ite.gc_name}</span>
                                     </li>
                                 
                                 )
@@ -139,7 +139,7 @@ class Hotvideo extends Component{
                                 <span className={ch.brandTitle}>品牌</span>
                                 <div className={ch.brandTypeList}>
                                     <ul className={ch.brandTypeUl}>
-                                        <li className={ch.brandTypeName}><span className={ch.spanttt} tabIndex={1}>全部</span></li>
+                                        <li className={ch.brandTypeName} onClick={this.quanButwo.bind(this)}><span className={ch.spanttt} tabIndex={1}>全部</span></li>
                                         {
                                             this.state.brandlist.map(it=>
                                                 <li className={ch.brandTypeName}  onClick={this.handleclickTwo.bind(this,it.brand_id)} key={it.brand_id} >
@@ -201,7 +201,7 @@ class Hotvideo extends Component{
     }
     handleclick(a){
         console.log("111111111111111111111")
-        this.setState=({
+        this.setState({
             gcId:a
         },()=>{
             axios({
@@ -215,11 +215,12 @@ class Hotvideo extends Component{
        
 
         
+        
     }
 
     handleclickTwo(b){
         // console.log(gcid)
-        this.setState=({
+        this.setState({
             brandId:b
         },
         ()=>{
@@ -231,11 +232,39 @@ class Hotvideo extends Component{
                 })
             })
         }
-        )
-       
-        
+        )    
+    }
 
-        
+    quanBu(){
+        this.setState({
+            gcId:0
+        },
+        ()=>{
+            axios({
+                url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&gc_id=[${this.state.gcId}]&brand_id=[${this.state.brandId}]`
+            }).then(res=>{
+                this.setState({
+                    goodlist:res.data.data.goods_info
+                })
+            })
+        }
+        )    
+    }
+
+    quanButwo(){
+        this.setState({
+            brandId:0
+        },
+        ()=>{
+            axios({
+                url:`/pc/hongren/hongrenGoodsList?hongren_uid=${this.props.match.params.id}&offset=0&gc_id=[${this.state.gcId}]&brand_id=[${this.state.brandId}]`
+            }).then(res=>{
+                this.setState({
+                    goodlist:res.data.data.goods_info
+                })
+            })
+        }
+        )    
     }
 
     
