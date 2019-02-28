@@ -10,7 +10,7 @@
             float:left;
             height: 32px;
             line-height: 32px;
-            color: #999;   
+            color: #999;
             font-size: 14px;
             transition: color .5s;
         }
@@ -21,6 +21,7 @@
             float: right;
             height: 32px;
             width:1000px;
+	        margin-bottom: 0;
             li{
                 float: right;
                 font-size: 14px;
@@ -83,7 +84,7 @@
         float: right;
         height: 40px;
         box-sizing: border-box;
-        margin-top: 23px;
+        margin-top: 38px;
         border: 1px solid #eee;
         width: 160px;
         text-align: center;
@@ -102,7 +103,7 @@
     .search{
         float: right;
         height: 40px;
-        margin-top: 23px;
+        margin-top: 38px;
         margin-right: 30px;
         input{
             border: none;
