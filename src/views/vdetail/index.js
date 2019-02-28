@@ -42,7 +42,7 @@ class Vdetail extends Component{
 																</div>
 																<div className={styles.videoTitle}>
 																		<h3>{this.state.videoDetail.video.video_title}</h3>
-																		<div className="iconfont icon-xin"><span>收藏</span></div>
+																		<div className="iconfont icon-xin"><span onClick={this.toLogin.bind(this)}>收藏</span></div>
 																</div>
 																<div className={styles.hongrenInfo}>
 																		<div className={styles.lm}>
@@ -59,7 +59,7 @@ class Vdetail extends Component{
 																		</div>
 																		</div>
 																		<div className={styles.right}>
-																				<div className={styles.follow}>+关注</div>
+																				<div className={styles.follow} onClick={this.toLogin.bind(this)}>+关注</div>
 																				<a href={`#/hongren/${this.state.videoDetail.hongren_info.uid}`}>进店逛逛></a>
 																		</div>
 																</div>
@@ -176,6 +176,12 @@ class Vdetail extends Component{
 			let m = Math.floor(second / 60);
 			let s = (second % 60)<10 ? '0'+(second % 60) : (second % 60);
 			return `${m}:${s}`
+		}
+
+		toLogin() {
+				console.log(this);
+				let redirect = decodeURI(this.props.location.pathname);
+				this.props.history.push(`/login?redirect=${redirect}`)
 		}
 
 		toGdetail(id) {

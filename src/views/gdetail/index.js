@@ -86,12 +86,12 @@ class gDetail extends Component {
 																					{
 																							this.state.goodsDetail.goodsInfo.goods_stock === '0'?
 																									<button className={styles.disabled} disabled>已售罄</button>
-																							:<button className={styles.normal} onClick={this.toShopCar.bind(this)}>加入购物车</button>
+																							:<button className={styles.normal} onClick={this.toLogin.bind(this)}>加入购物车</button>
 																					}
 
 																					<div className={styles.collect}>
 																							<span className="iconfont icon-xin"/>
-																							<span className={styles.text}>收藏</span>
+																							<span className={styles.text} onClick={this.toLogin.bind(this)}>收藏</span>
 																					</div>
 																			</div>
 																</div>
@@ -121,7 +121,7 @@ class gDetail extends Component {
 																										</div>
 																								</div>
 																								<div className={styles.other}>
-																										<div>+关注</div>
+																										<div onClick={this.toLogin.bind(this)}>+关注</div>
 																										<a href={`#/hongren/${this.state.goodsDetail.hongren.uid}`}>进店逛逛</a>
 																								</div>
 																						</div>
@@ -194,8 +194,10 @@ class gDetail extends Component {
 				}
 		}
 
-		toShopCar() {
-				this.props.history.push('/shopcar')
+		toLogin() {
+				console.log(this);
+				let redirect = decodeURI(this.props.location.pathname);
+				this.props.history.push(`/login?redirect=${redirect}`)
 		}
 
 		changeVideo(index) {

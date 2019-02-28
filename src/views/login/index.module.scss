@@ -52,6 +52,14 @@
 						text-align: center;
 					}
 					form {
+						position: relative;
+						.error {
+							position: absolute;
+							left: 17px;
+							bottom: 63px;
+							color: #ff527d;
+							font-size: 12px;
+						}
 						input {
 							width: 100%;
 							border: none;

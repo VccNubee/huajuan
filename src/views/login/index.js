@@ -2,13 +2,16 @@ import React, {Component}from 'react'
 import styles from './index.module.scss'
 import {loginRec} from "./model";
 import store from "../../store";
+import {notification} from "antd";
+import axios from "axios";
 
 class Login extends Component{
 		constructor(props) {
 				super(props);
 
 				this.state = {
-						loginRec: null
+						loginRec: null,
+						isShow: false
 				}
 		}
 
@@ -28,10 +31,16 @@ class Login extends Component{
 																		</header>
 																		<main>
 																				<p>您的手机号将被默认作为花卷app账号使用</p>
-																				<form action="/api/login" method="post">
-																						<input type="tel" placeholder="请输入手机号" name="mobile"/>
-																						<input type="password" placeholder="请输入密码" name="password"/>
-																						<button type="submit">登录</button>
+																				<form autoComplete="off" onSubmit={this.handleSubmit}>
+																						<input type="tel" placeholder="请输入手机号" name="mobile" ref="mobile"/>
+																						{
+																								this.state.isShow ?
+																										<p className={styles.error}>*手机号或密码输入错误 (｡･ω･｡)</p>
+																								:null
+																						}
+
+																						<input type="password" placeholder="请输入密码" name="password" ref="password"/>
+																						<button onClick={this.login.bind(this)}>登录</button>
 																				</form>
 																		</main>
 																</div>
@@ -42,8 +51,42 @@ class Login extends Component{
 						</div>
 				)
 		}
+		handleSubmit =(e) => {
+				e.preventDefault()
+		};
+		login() {
+				// console.log(this)
+				axios({
+						url:"/api/login",
+						method: "post",
+						data:{
+								mobile: this.refs.mobile.value,
+								password: this.refs.password.value
+						}
+				}).then(res => {
+						console.log(res.data);
+						if(res.data.ret === "success") {
+								let redirect = (this.props.location.search).slice(10)
+								this.props.history.push(redirect)
+						} else {
+								this.setState({
+										isShow: true
+								})
+						}
+				})
+		}
 
 		componentDidMount() {
+				notification["info"]({
+						message: '测试号',
+						description: '手机：15800000000；密码：test',
+						duration: null,
+						style: {
+								height:100,
+								width: 600,
+								marginLeft: 335 - 600,
+						},
+				});
 				store.dispatch({
 						type: 'isShow',
 						payLoad: false
