@@ -7,6 +7,7 @@ import store from '../../store'
 message.config({
 		top: 160
 });
+
 class gDetail extends Component {
 		constructor(props) {
 				super(props);
