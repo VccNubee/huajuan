@@ -77,6 +77,12 @@ class Login extends Component{
 		}
 
 		componentDidMount() {
+				axios.get("/api/checkLogin").then(res => {
+						console.log(res.data);
+						if(res.data.ret === 1) {
+								this.props.history.push('/')
+						}
+				});
 				notification["info"]({
 						message: '测试号',
 						description: '手机：15800000000；密码：test',

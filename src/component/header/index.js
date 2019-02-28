@@ -3,12 +3,15 @@ import React,{Component} from 'react'
 import ccc from './index.module.scss'
 import logo from './logo.png'
 import {message} from "antd";
+import axios from 'axios'
 
 class Header extends Component{
 		constructor(props) {
 				super(props);
 				this.state = {
-						search: ''
+						search: '',
+						isLogin: false,
+						user: ''
 				}
 		}
 
@@ -20,14 +23,25 @@ class Header extends Component{
                 <ul>
                 <li className={ccc.l4}><img src="http://static.huajuanmall.com/subject/o_1d1su43d25utq1s1s0re8l95jm.png" alt="" height="18px"/><a href="https://www.huajuanmall.com/#/miniDraw">重赏福利小程序</a></li>
                 <li className={ccc.l3}><a href="https://m.huajuanmall.com/">花卷app下载</a></li>
-                <li className={ccc.l2}><a href="#/login">登录</a></li>
-                <li className={ccc.l1}>Hi！花卷商城欢迎你~</li>
+										{
+												this.state.isLogin?
+														<span>
+														<li className={ccc.l2}><a onClick={this.logout.bind(this)}>退出</a></li>
+														<li className={ccc.l1}>{this.state.user}</li>
+														</span>
+														:
+														<span>
+														<li className={ccc.l2}><a href="#/login">登录</a></li>
+														<li className={ccc.l1}>Hi！花卷商城欢迎你~</li>
+														</span>
+										}
+
                 </ul>
             </div>
         </div>
         <div className={ccc.bottom}>
             <Link to='/home' replace><img src={logo} alt="" height='68px'/></Link>
-            <div className={ccc.cart}>
+            <div className={ccc.cart} onClick={this.toShopCar.bind(this)}>
                 <span className="iconfont icon-gouwuche"></span>
                 我的购物车
             </div>
@@ -38,6 +52,51 @@ class Header extends Component{
         </div>
      </div>
     }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+				axios.get("/api/checkLogin").then(res => {
+						console.log(res.data);
+						if(res.data.ret === 1) {
+								this.setState({
+										isLogin: true,
+										user: res.data.user
+								})
+						} else {
+								this.setState({
+										isLogin: false
+								})
+						}
+				});
+		}
+
+		componentDidMount() {
+				axios.get("/api/checkLogin").then(res => {
+						console.log(res.data);
+						if(res.data.ret === 1) {
+								this.setState({
+										isLogin: true,
+										user: res.data.user
+								})
+						} else {
+								this.setState({
+										isLogin: false
+								})
+						}
+				});
+		}
+
+		toShopCar() {
+				this.props.history.push('/login');
+				message.warning('购物车模块正在努力开发中...');
+		}
+
+		logout() {
+				axios.get('/api/logout').then(res => {
+						console.log(res);
+						window.location.reload()
+				});
+
+		}
 
 		handleInput() {
     		this.setState({
