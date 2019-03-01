@@ -64,7 +64,6 @@ class Login extends Component{
 								password: this.refs.password.value
 						}
 				}).then(res => {
-						console.log(res.data);
 						if(res.data.ret === "success") {
 								let redirect = (this.props.location.search).slice(10);
 								this.props.history.push(redirect)
@@ -78,7 +77,6 @@ class Login extends Component{
 
 		componentDidMount() {
 				axios.get("/api/checkLogin").then(res => {
-						console.log(res.data);
 						if(res.data.ret === 1) {
 								let redirect = (this.props.location.search).slice(10)
 								this.props.history.push(redirect)
@@ -101,7 +99,6 @@ class Login extends Component{
 						payLoad: false
 				});
 				loginRec().then(res => {
-						console.log(res);
 						this.setState({
 								loginRec: res.ad
 						})

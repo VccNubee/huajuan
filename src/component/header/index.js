@@ -55,7 +55,6 @@ class Header extends Component{
 
     componentWillReceiveProps(nextProps, nextContext) {
 				axios.get("/api/checkLogin").then(res => {
-						console.log(res.data);
 						if(res.data.ret === 1) {
 								this.setState({
 										isLogin: true,
@@ -71,7 +70,6 @@ class Header extends Component{
 
 		componentDidMount() {
 				axios.get("/api/checkLogin").then(res => {
-						console.log(res.data);
 						if(res.data.ret === 1) {
 								this.setState({
 										isLogin: true,
@@ -92,7 +90,6 @@ class Header extends Component{
 
 		logout() {
 				axios.get('/api/logout').then(res => {
-						console.log(res);
 						window.location.reload()
 				});
 

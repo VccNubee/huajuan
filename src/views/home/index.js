@@ -21,7 +21,6 @@ class Home extends Component{
 
 	componentWillReceiveProps(nextProps, nextContext) {
 			axios.get("/api/checkLogin").then(res => {
-					console.log(res.data);
 					if(res.data.ret === 1) {
 							this.setState({
 									isLogin: true,
@@ -38,7 +37,6 @@ class Home extends Component{
 		componentDidMount(){
 		//	检查登录状态
 			axios.get("/api/checkLogin").then(res => {
-					console.log(res.data);
 					if(res.data.ret === 1) {
 							this.setState({
 									isLogin: true,
