@@ -10,7 +10,13 @@ img{display:block; border:0;}
 button,input,select,textarea{outline:none;}
 textarea{ resize:none;}
 
-body{ }
+body{
+    width:100%;
+}
+body>div{
+    width: 100%;
+    min-width: 1200px;
+}
 
 a{ text-decoration:none;}
 a:hover{ text-decoration:none;}
